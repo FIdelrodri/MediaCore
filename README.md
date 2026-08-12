@@ -1,0 +1,2 @@
+# MediaCore
+Proyecto interdiciplinario
