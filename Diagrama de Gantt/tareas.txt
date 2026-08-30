@@ -1,0 +1,21 @@
+1) realizar entrevista
+2) Realizar Requisitos de la entrevista
+3) Crear Diagrama de gannt
+4) Crear Roles
+5) Realizar Casos de uso
+6) Realizar DER
+7) Realizar BD
+8) Crear GitHub
+9) Crear Presupuesto de Red
+0) Crear Front y Backend de inicio y Registro
+10) Crear procedure de para recibir el registro en la BD
+11) Realizar vista de Administrador para gestión de usuarios
+12) Realizar backend de Administración
+13) Realizar sistema de posproducción
+14) Realizar backend de posproducción
+15) Realizar sistema de planilla
+16) Realizar backend de planilla
+17) Realizar sistema de escenografía
+18) Realizar backend de escenografía
+19) Finalizar testeo de la pagina
+20) Realizar la entrega final
