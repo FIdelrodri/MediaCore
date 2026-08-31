@@ -1,0 +1,54 @@
+
+===============================================================================
+REQUERIMIENTOS FUNCIONALES (RF)
+===============================================================================
+
+--- GESTIÓN DE PROGRAMACIÓN / GRILLA ---
+• RF01: Control en tiempo real de la programación de TV y streaming.
+• RF02: Creación de bloques para contenido en vivo y pregrabado.
+• RF03: Reproducción automática y secuencial de bloques programados.
+• RF04: Planificación de cronogramas mensuales (días, franjas horarias, videos).
+• RF05: Interfaz con línea de tiempo visual e interacción drag and drop.
+• RF06: Eliminación manual de bloques o programas de la planilla.
+• RF07: Detección de huecos en la grilla con emisión de alertas al personal (sin auto-relleno).
+• RF08: Exclusión de generación automática de pautas o bloques (definidos exclusivamente por el personal).
+
+--- STREAMING Y TRANSMISIÓN EN VIVO ---
+• RF09: Preparación de streams en vivo organizando escenografía, arte y vestuario.
+• RF10: Pausa automática de programación pregrabada al iniciar un vivo y reanudación posterior.
+• RF11: Guardado de transmisiones en vivo para retransmisión u on-demand (reverse).
+• RF12: Restricción de contenido de TV para su consumo on-demand.
+• RF13: Consulta del historial completo de archivos digitales conservados.
+• RF14: Simulación de integraciones de streaming (Twitch, chat en vivo y rating en tiempo real con datos de prueba).
+
+--- PAUTAS PUBLICITARIAS ---
+• RF15: Carga de tandas comerciales como archivos de video (10s, 20s, 30s).
+• RF16: Configuración de frecuencia de reproducción contratada por anunciante.
+• RF17: Segmentación de pautas por categoría/etiqueta de programa.
+• RF18: Activación manual de pausas publicitarias en transmisiones en vivo.
+• RF19: Módulo de gestión de facturación a anunciantes.
+
+--- USUARIOS Y ROLES ---
+• RF20: Acceso exclusivo para personal interno de la empresa.
+• RF21: Perfiles y permisos diferenciados por rol (Gerente, Monitoreo, Audio, Postproducción).
+• RF22: Integración con el sistema existente de subtitulado y lenguaje de señas.
+
+--- ACREDITACIONES Y PRODUCCIÓN EN VIVO ---
+• RF23: Gestión de credenciales de prensa y cobertura de eventos.
+• RF24: Registro detallado de producción (arte, vestuario, escenografía) asignado a bloques en vivo.
+
+--- NOTIFICACIONES ---
+• RF25: Alertas internas en la plataforma para el equipo de monitoreo (ej. huecos en grilla).
+
+===============================================================================
+REQUERIMIENTOS NO FUNCIONALES (RNF)
+===============================================================================
+
+• RNF01 (Uso interno): Restricción de acceso exclusivo desde las instalaciones físicas de la empresa.
+• RNF02 (Seguridad por roles): Control de acceso basado en roles (RBAC).
+• RNF03 (Usabilidad): Interfaz gráfica intuitiva con soporte de arrastrar y soltar (drag and drop).
+• RNF04 (Disponibilidad): Funcionamiento continuo 24/7 sin interrupciones.
+• RNF05 (Persistencia histórica): Almacenamiento seguro e íntegro del historial de archivos y transmisiones.
+• RNF06 (Simulación de datos): Uso de mock data para funcionalidades de API externas no disponibles.
+• RNF07 (Mantenibilidad / Licencias): Desarrollo propio para eliminar la dependencia de licencias de software privativo.
+• RNF08 (Accesibilidad): Compatibilidad con los recursos actuales de accesibilidad (subtítulos y señas).
