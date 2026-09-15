@@ -1,0 +1,20 @@
+# 1. Inicializás Git en tu carpeta local
+git init
+
+# 2. Vinculás directamente con el repositorio de MediaCore
+git remote add origin https://github.com/FIdelrodri/MediaCore.git
+
+# 3. Traés la información de las ramas remotas
+git fetch origin
+
+# 4. Te parás en la rama Fidel-branch y descargás los archivos
+git checkout -b Fidel-branch origin/Fidel-branch
+---------------------
+# 1. Registrás todo lo nuevo, modificado o borrado
+git add .
+
+# 2. Guardás el punto de control local
+git commit -m "Actualizo el proyecto de MediaCore"
+
+# 3. Lo mandás directo a Fidel-branch en internet
+git push origin Fidel-branch
