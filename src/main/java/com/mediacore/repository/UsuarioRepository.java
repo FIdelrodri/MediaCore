@@ -12,11 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     boolean existsByEmail(String email);
+    boolean existsByNombreUsuario(String nombreUsuario);
 
     @Transactional
     @Modifying
     @Procedure(procedureName = "registrar_usuario")
     void registrarUsuarioProcedure(
+        @Param("p_nombre_usuario") String nombreUsuario,
         @Param("p_nombre") String nombre,
         @Param("p_apellido") String apellido,
         @Param("p_email") String email,

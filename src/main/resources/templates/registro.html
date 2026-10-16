@@ -6,25 +6,30 @@
 </head>
 <body>
 
-    <h1>Registro vía API</h1>
+    <h1>Registro de Usuario</h1>
 
     <div id="mensaje" style="font-weight: bold;"></div>
     <br>
 
     <form id="formRegistro">
         <div>
+            <label for="nombreUsuario">Nombre de Usuario (Username):</label><br>
+            <input type="text" id="nombreUsuario" required maxlength="25">
+        </div>
+        <br>
+        <div>
             <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" required>
+            <input type="text" id="nombre" required maxlength="25">
         </div>
         <br>
         <div>
             <label for="apellido">Apellido:</label><br>
-            <input type="text" id="apellido" required>
+            <input type="text" id="apellido" required maxlength="25">
         </div>
         <br>
         <div>
             <label for="email">Correo electrónico:</label><br>
-            <input type="email" id="email" required>
+            <input type="email" id="email" required maxlength="50">
         </div>
         <br>
         <div>
@@ -32,11 +37,9 @@
             <input type="password" id="contrasena" required>
         </div>
         <br>
-        
-        <button type="submit">Registrar</button>
+        <button type="submit">Registrarse</button>
     </form>
 
-    <!-- Importación del script externo desde la carpeta static/js/ -->
     <script src="/js/registro.js"></script>
 </body>
 </html>

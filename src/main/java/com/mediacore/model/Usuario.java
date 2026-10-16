@@ -12,6 +12,9 @@ public class Usuario {
     @Column(name = "id_usuario")
     private Integer idUsuario;
 
+    @Column(name = "nombre_usuario", nullable = false, unique = true, length = 50)
+    private String nombreUsuario;
+
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
 
@@ -30,12 +33,14 @@ public class Usuario {
     @Column(name = "id_rol")
     private Integer idRol;
 
-    // Constructores
     public Usuario() {}
 
     // Getters y Setters
     public Integer getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Integer idUsuario) { this.idUsuario = idUsuario; }
+
+    public String getNombreUsuario() { return nombreUsuario; }
+    public void setNombreUsuario(String nombreUsuario) { this.nombreUsuario = nombreUsuario; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
