@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formRegistro.addEventListener('submit', async function(event) {
             event.preventDefault();
 
-            // 1. Obtener valores de los inputs del HTML
+            // 1. Obtener valores de los inputs
             const datosUsuario = {
                 nombreUsuario: document.getElementById('nombreUsuario').value,
                 nombre: document.getElementById('nombre').value,
@@ -14,32 +14,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 contrasena: document.getElementById('contrasena').value,
             };
 
-            const divMensaje = document.getElementById('mensaje');
+            const divMensaje = document.getElementById('Alerta');
+
+            function mostrarError(mensaje) {
+                divMensaje.textContent = mensaje;
+                divMensaje.classList.remove('exito');
+                divMensaje.classList.add('error');
+            }
+
+            function mostrarExito(mensaje) {
+                divMensaje.textContent = mensaje;
+                divMensaje.classList.remove('error');
+                divMensaje.classList.add('exito');
+            }
 
             // Validaciones de los datos del usuario
             if (datosUsuario.nombreUsuario.length > 25) {
-                divMensaje.textContent = 'El nombre de usuario no puede tener más de 25 caracteres.';
-                divMensaje.style.color = 'red';
+                mostrarError('El nombre de usuario no puede tener más de 25 caracteres.');
                 return;
             }
             if (datosUsuario.nombre.length > 25) {
-                divMensaje.textContent = 'El nombre no puede tener más de 25 caracteres.';
-                divMensaje.style.color = 'red';
+                mostrarError('El nombre no puede tener más de 25 caracteres.');
                 return;
             }
             if (datosUsuario.apellido.length > 25) {
-                divMensaje.textContent = 'El apellido no puede tener más de 25 caracteres.';
-                divMensaje.style.color = 'red';
+                mostrarError('El apellido no puede tener más de 25 caracteres.');
                 return;
             }
             if (datosUsuario.email.length > 50) {
-                divMensaje.textContent = 'El email no puede tener más de 50 caracteres.';
-                divMensaje.style.color = 'red';
+                mostrarError('El email no puede tener más de 50 caracteres.');
                 return;
             }
             if (datosUsuario.contrasena.length < 6) {
-                divMensaje.textContent = 'La contraseña debe tener al menos 6 caracteres.';
-                divMensaje.style.color = 'red';
+                mostrarError('La contraseña debe tener al menos 6 caracteres.');
                 return;
             }
 
@@ -49,23 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const tieneNumero = verificarcontraseña.some(caracter => caracter >= '0' && caracter <= '9');
 
             if (!tieneMayuscula) {
-                divMensaje.textContent = 'La contraseña debe contener al menos una letra mayúscula.';
-                divMensaje.style.color = 'red';
+                mostrarError('La contraseña debe contener al menos una letra mayúscula.');
                 return;
             }
             if (!tieneLetra) {
-                divMensaje.textContent = 'La contraseña debe contener al menos una letra minúscula.';
-                divMensaje.style.color = 'red';
+                mostrarError('La contraseña debe contener al menos una letra minúscula.');
                 return;
             }
             if (!tieneNumero) {
-                divMensaje.textContent = 'La contraseña debe contener al menos un número.';
-                divMensaje.style.color = 'red';
+                mostrarError('La contraseña debe contener al menos un número.');
                 return;
             }
 
             try {
-                // 2. Hacer la llamada a la API en Java (Spring Boot)
+                // 2. Petición a la API Spring Boot
                 const respuesta = await fetch('/api/usuarios/registro', {
                     method: 'POST',
                     headers: {
@@ -76,19 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const resultado = await respuesta.json();
 
-                // 3. Procesar la respuesta de la API
+                // 3. Procesar respuesta
                 if (respuesta.ok) {
-                    divMensaje.textContent = resultado.mensaje;
-                    divMensaje.style.color = 'green';
+                    mostrarExito(resultado.mensaje || 'Registro exitoso.');
                     formRegistro.reset();
                 } else {
-                    divMensaje.textContent = resultado.mensaje;
-                    divMensaje.style.color = 'red';
+                    mostrarError(resultado.mensaje || 'Error al registrar el usuario.');
                 }
             } catch (error) {
                 console.error('Error al conectar con la API:', error);
-                divMensaje.textContent = 'Ocurrió un error al conectar con el servidor.';
-                divMensaje.style.color = 'red';
+                mostrarError('Ocurrió un error al conectar con el servidor.');
             }
         });
     }
