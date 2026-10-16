@@ -1,12 +1,11 @@
 package com.mediacore.service;
 
-import com.mediacore.model.Usuario;
 import com.mediacore.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioService {
+public class Usuario {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -15,8 +14,12 @@ public class UsuarioService {
         return usuarioRepository.existsByEmail(email);
     }
 
-    public Usuario registrarUsuario(Usuario usuario) {
-        // Guarda directamente la cuenta en la tabla usuario
-        return usuarioRepository.save(usuario);
+    public void registrarUsuarioConProcedure(com.mediacore.model.Usuario usuario) {
+        usuarioRepository.registrarUsuarioProcedure(
+            usuario.getNombre(),
+            usuario.getApellido(),
+            usuario.getEmail(),
+            usuario.getContrasena()
+        );
     }
 }

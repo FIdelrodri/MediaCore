@@ -1,7 +1,6 @@
 package com.mediacore.controller;
 
 import com.mediacore.model.Usuario;
-import com.mediacore.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.Map;
 public class UsuarioRestController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private com.mediacore.service.Usuario usuarioService;
 
     @PostMapping("/registro")
     public ResponseEntity<Map<String, String>> registrar(@RequestBody Usuario usuario) {
@@ -26,9 +25,11 @@ public class UsuarioRestController {
             return ResponseEntity.badRequest().body(respuesta);
         }
 
-        usuarioService.registrarUsuario(usuario);
+        // Ejecuta el procedimiento almacenado
+        usuarioService.registrarUsuarioConProcedure(usuario);
+
         respuesta.put("status", "ok");
-        respuesta.put("mensaje", "Usuario registrado exitosamente desde la API.");
+        respuesta.put("mensaje", "Usuario registrado exitosamente mediante Stored Procedure.");
         return ResponseEntity.ok(respuesta);
     }
 }

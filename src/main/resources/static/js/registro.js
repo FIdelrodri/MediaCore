@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 apellido: document.getElementById('apellido').value,
                 email: document.getElementById('email').value,
                 contrasena: document.getElementById('contrasena').value,
-                idRol: document.getElementById('idRol').value ? parseInt(document.getElementById('idRol').value) : null
             };
 
             const divMensaje = document.getElementById('mensaje');

@@ -3,7 +3,7 @@ git init
 
 # 2. Vinculás directamente con el repositorio de tu Casino
 git remote add origin https://github.com/FIdelrodri/MediaCore.git
-
+                      
 # 3. Te parás en la rama principal
 git branch -M main
 
