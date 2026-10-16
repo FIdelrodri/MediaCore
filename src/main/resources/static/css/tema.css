@@ -1,0 +1,288 @@
+:root {
+/* ==========================================
+1) COLOR PRINCIPAL: GRANATE (Granate)
+Base Hex: #800020
+========================================== */
+
+/* Tone: -5 (Más claro) */
+--granate-5: #f2e0e4;
+--granate-5-opacidad-1: rgba(242, 224, 228, 0.2);
+--granate-5-opacidad-2: rgba(242, 224, 228, 0.4);
+--granate-5-opacidad-3: rgba(242, 224, 228, 0.6);
+--granate-5-opacidad-4: rgba(242, 224, 228, 0.8);
+--granate-5-opacidad-5: rgba(242, 224, 228, 1);
+
+/* Tone: -4 */
+--granate-4: #e6c2c9;
+--granate-4-opacidad-1: rgba(230, 194, 201, 0.2);
+--granate-4-opacidad-2: rgba(230, 194, 201, 0.4);
+--granate-4-opacidad-3: rgba(230, 194, 201, 0.6);
+--granate-4-opacidad-4: rgba(230, 194, 201, 0.8);
+--granate-4-opacidad-5: rgba(230, 194, 201, 1);
+
+/* Tone: -3 */
+--granate-3: #cc99a5;
+--granate-3-opacidad-1: rgba(204, 153, 165, 0.2);
+--granate-3-opacidad-2: rgba(204, 153, 165, 0.4);
+--granate-3-opacidad-3: rgba(204, 153, 165, 0.6);
+--granate-3-opacidad-4: rgba(204, 153, 165, 0.8);
+--granate-3-opacidad-5: rgba(204, 153, 165, 1);
+
+/* Tone: -2 */
+--granate-2: #b36677;
+--granate-2-opacidad-1: rgba(179, 102, 119, 0.2);
+--granate-2-opacidad-2: rgba(179, 102, 119, 0.4);
+--granate-2-opacidad-3: rgba(179, 102, 119, 0.6);
+--granate-2-opacidad-4: rgba(179, 102, 119, 0.8);
+--granate-2-opacidad-5: rgba(179, 102, 119, 1);
+
+/* Tone: -1 */
+--granate-1: #99334a;
+--granate-1-opacidad-1: rgba(153, 51, 74, 0.2);
+--granate-1-opacidad-2: rgba(153, 51, 74, 0.4);
+--granate-1-opacidad-3: rgba(153, 51, 74, 0.6);
+--granate-1-opacidad-4: rgba(153, 51, 74, 0.8);
+--granate-1-opacidad-5: rgba(153, 51, 74, 1);
+
+/* Tone: Base (Sin número) */
+--granate: #800020;
+--granate-opacidad-1: rgba(128, 0, 32, 0.2);
+--granate-opacidad-2: rgba(128, 0, 32, 0.4);
+--granate-opacidad-3: rgba(128, 0, 32, 0.6);
+--granate-opacidad-4: rgba(128, 0, 32, 0.8);
+--granate-opacidad-5: rgba(128, 0, 32, 1);
+
+/* Tone: 1 */
+--granate1: #6d001b;
+--granate1-opacidad-1: rgba(109, 0, 27, 0.2);
+--granate1-opacidad-2: rgba(109, 0, 27, 0.4);
+--granate1-opacidad-3: rgba(109, 0, 27, 0.6);
+--granate1-opacidad-4: rgba(109, 0, 27, 0.8);
+--granate1-opacidad-5: rgba(109, 0, 27, 1);
+
+/* Tone: 2 */
+--granate2: #590016;
+--granate2-opacidad-1: rgba(89, 0, 22, 0.2);
+--granate2-opacidad-2: rgba(89, 0, 22, 0.4);
+--granate2-opacidad-3: rgba(89, 0, 22, 0.6);
+--granate2-opacidad-4: rgba(89, 0, 22, 0.8);
+--granate2-opacidad-5: rgba(89, 0, 22, 1);
+
+/* Tone: 3 */
+--granate3: #460011;
+--granate3-opacidad-1: rgba(70, 0, 17, 0.2);
+--granate3-opacidad-2: rgba(70, 0, 17, 0.4);
+--granate3-opacidad-3: rgba(70, 0, 17, 0.6);
+--granate3-opacidad-4: rgba(70, 0, 17, 0.8);
+--granate3-opacidad-5: rgba(70, 0, 17, 1);
+
+/* Tone: 4 */
+--granate4: #33000c;
+--granate4-opacidad-1: rgba(51, 0, 12, 0.2);
+--granate4-opacidad-2: rgba(51, 0, 12, 0.4);
+--granate4-opacidad-3: rgba(51, 0, 12, 0.6);
+--granate4-opacidad-4: rgba(51, 0, 12, 0.8);
+--granate4-opacidad-5: rgba(51, 0, 12, 1);
+
+/* Tone: 5 (Más oscuro) */
+--granate5: #1f0007;
+--granate5-opacidad-1: rgba(31, 0, 7, 0.2);
+--granate5-opacidad-2: rgba(31, 0, 7, 0.4);
+--granate5-opacidad-3: rgba(31, 0, 7, 0.6);
+--granate5-opacidad-4: rgba(31, 0, 7, 0.8);
+--granate5-opacidad-5: rgba(31, 0, 7, 1);
+
+/* ==========================================
+2) COLOR PRINCIPAL: MARRÓN CLARO (MarronClaro)
+Base Hex: #d2b48c
+========================================== */
+
+/* Tone: -5 (Más claro) */
+--marron-claro-5: #fcf9f5;
+--marron-claro-5-opacidad-1: rgba(252, 249, 245, 0.2);
+--marron-claro-5-opacidad-2: rgba(252, 249, 245, 0.4);
+--marron-claro-5-opacidad-3: rgba(252, 249, 245, 0.6);
+--marron-claro-5-opacidad-4: rgba(252, 249, 245, 0.8);
+--marron-claro-5-opacidad-5: rgba(252, 249, 245, 1);
+
+/* Tone: -4 */
+--marron-claro-4: #f6efe6;
+--marron-claro-4-opacidad-1: rgba(246, 239, 230, 0.2);
+--marron-claro-4-opacidad-2: rgba(246, 239, 230, 0.4);
+--marron-claro-4-opacidad-3: rgba(246, 239, 230, 0.6);
+--marron-claro-4-opacidad-4: rgba(246, 239, 230, 0.8);
+--marron-claro-4-opacidad-5: rgba(246, 239, 230, 1);
+
+/* Tone: -3 */
+--marron-claro-3: #eddfcd;
+--marron-claro-3-opacidad-1: rgba(237, 223, 205, 0.2);
+--marron-claro-3-opacidad-2: rgba(237, 223, 205, 0.4);
+--marron-claro-3-opacidad-3: rgba(237, 223, 205, 0.6);
+--marron-claro-3-opacidad-4: rgba(237, 223, 205, 0.8);
+--marron-claro-3-opacidad-5: rgba(237, 223, 205, 1);
+
+/* Tone: -2 */
+--marron-claro-2: #e4d1b7;
+--marron-claro-2-opacidad-1: rgba(228, 209, 183, 0.2);
+--marron-claro-2-opacidad-2: rgba(228, 209, 183, 0.4);
+--marron-claro-2-opacidad-3: rgba(228, 209, 183, 0.6);
+--marron-claro-2-opacidad-4: rgba(228, 209, 183, 0.8);
+--marron-claro-2-opacidad-5: rgba(228, 209, 183, 1);
+
+/* Tone: -1 */
+--marron-claro-1: #dbc3a1;
+--marron-claro-1-opacidad-1: rgba(219, 195, 161, 0.2);
+--marron-claro-1-opacidad-2: rgba(219, 195, 161, 0.4);
+--marron-claro-1-opacidad-3: rgba(219, 195, 161, 0.6);
+--marron-claro-1-opacidad-4: rgba(219, 195, 161, 0.8);
+--marron-claro-1-opacidad-5: rgba(219, 195, 161, 1);
+
+/* Tone: Base (Sin número) */
+--marron-claro: #d2b48c;
+--marron-claro-opacidad-1: rgba(210, 180, 140, 0.2);
+--marron-claro-opacidad-2: rgba(210, 180, 140, 0.4);
+--marron-claro-opacidad-3: rgba(210, 180, 140, 0.6);
+--marron-claro-opacidad-4: rgba(210, 180, 140, 0.8);
+--marron-claro-opacidad-5: rgba(210, 180, 140, 1);
+
+/* Tone: 1 */
+--marron-claro1: #b9996f;
+--marron-claro1-opacidad-1: rgba(185, 153, 111, 0.2);
+--marron-claro1-opacidad-2: rgba(185, 153, 111, 0.4);
+--marron-claro1-opacidad-3: rgba(185, 153, 111, 0.6);
+--marron-claro1-opacidad-4: rgba(185, 153, 111, 0.8);
+--marron-claro1-opacidad-5: rgba(185, 153, 111, 1);
+
+/* Tone: 2 */
+--marron-claro2: #9e7e53;
+--marron-claro2-opacidad-1: rgba(158, 126, 83, 0.2);
+--marron-claro2-opacidad-2: rgba(158, 126, 83, 0.4);
+--marron-claro2-opacidad-3: rgba(158, 126, 83, 0.6);
+--marron-claro2-opacidad-4: rgba(158, 126, 83, 0.8);
+--marron-claro2-opacidad-5: rgba(158, 126, 83, 1);
+
+/* Tone: 3 */
+--marron-claro3: #826338;
+--marron-claro3-opacidad-1: rgba(130, 99, 56, 0.2);
+--marron-claro3-opacidad-2: rgba(130, 99, 56, 0.4);
+--marron-claro3-opacidad-3: rgba(130, 99, 56, 0.6);
+--marron-claro3-opacidad-4: rgba(130, 99, 56, 0.8);
+--marron-claro3-opacidad-5: rgba(130, 99, 56, 1);
+
+/* Tone: 4 */
+--marron-claro4: #66491e;
+--marron-claro4-opacidad-1: rgba(102, 73, 30, 0.2);
+--marron-claro4-opacidad-2: rgba(102, 73, 30, 0.4);
+--marron-claro4-opacidad-3: rgba(102, 73, 30, 0.6);
+--marron-claro4-opacidad-4: rgba(102, 73, 30, 0.8);
+--marron-claro4-opacidad-5: rgba(102, 73, 30, 1);
+
+/* Tone: 5 (Más oscuro) */
+--marron-claro5: #4a3003;
+--marron-claro5-opacidad-1: rgba(74, 48, 3, 0.2);
+--marron-claro5-opacidad-2: rgba(74, 48, 3, 0.4);
+--marron-claro5-opacidad-3: rgba(74, 48, 3, 0.6);
+--marron-claro5-opacidad-4: rgba(74, 48, 3, 0.8);
+--marron-claro5-opacidad-5: rgba(74, 48, 3, 1);
+
+/* ==========================================
+3) COLOR PRINCIPAL: ROSA CLARO (RosaClaro)
+Base Hex: #ffb6c1
+========================================== */
+
+/* Tone: -5 (Más claro) */
+--rosa-claro-5: #fff5f6;
+--rosa-claro-5-opacidad-1: rgba(255, 245, 246, 0.2);
+--rosa-claro-5-opacidad-2: rgba(255, 245, 246, 0.4);
+--rosa-claro-5-opacidad-3: rgba(255, 245, 246, 0.6);
+--rosa-claro-5-opacidad-4: rgba(255, 245, 246, 0.8);
+--rosa-claro-5-opacidad-5: rgba(255, 245, 246, 1);
+
+/* Tone: -4 */
+--rosa-claro-4: #ffe8eb;
+--rosa-claro-4-opacidad-1: rgba(255, 232, 235, 0.2);
+--rosa-claro-4-opacidad-2: rgba(255, 232, 235, 0.4);
+--rosa-claro-4-opacidad-3: rgba(255, 232, 235, 0.6);
+--rosa-claro-4-opacidad-4: rgba(255, 232, 235, 0.8);
+--rosa-claro-4-opacidad-5: rgba(255, 232, 235, 1);
+
+/* Tone: -3 */
+--rosa-claro-3: #ffdce0;
+--rosa-claro-3-opacidad-1: rgba(255, 220, 224, 0.2);
+--rosa-claro-3-opacidad-2: rgba(255, 220, 224, 0.4);
+--rosa-claro-3-opacidad-3: rgba(255, 220, 224, 0.6);
+--rosa-claro-3-opacidad-4: rgba(255, 220, 224, 0.8);
+--rosa-claro-3-opacidad-5: rgba(255, 220, 224, 1);
+
+/* Tone: -2 */
+--rosa-claro-2: #ffcfd6;
+--rosa-claro-2-opacidad-1: rgba(255, 207, 214, 0.2);
+--rosa-claro-2-opacidad-2: rgba(255, 207, 214, 0.4);
+--rosa-claro-2-opacidad-3: rgba(255, 207, 214, 0.6);
+--rosa-claro-2-opacidad-4: rgba(255, 207, 214, 0.8);
+--rosa-claro-2-opacidad-5: rgba(255, 207, 214, 1);
+
+/* Tone: -1 */
+--rosa-claro-1: #ffc2cb;
+--rosa-claro-1-opacidad-1: rgba(255, 194, 203, 0.2);
+--rosa-claro-1-opacidad-2: rgba(255, 194, 203, 0.4);
+--rosa-claro-1-opacidad-3: rgba(255, 194, 203, 0.6);
+--rosa-claro-1-opacidad-4: rgba(255, 194, 203, 0.8);
+--rosa-claro-1-opacidad-5: rgba(255, 194, 203, 1);
+
+/* Tone: Base (Sin número) */
+--rosa-claro: #ffb6c1;
+--rosa-claro-opacidad-1: rgba(255, 182, 193, 0.2);
+--rosa-claro-opacidad-2: rgba(255, 182, 193, 0.4);
+--rosa-claro-opacidad-3: rgba(255, 182, 193, 0.6);
+--rosa-claro-opacidad-4: rgba(255, 182, 193, 0.8);
+--rosa-claro-opacidad-5: rgba(255, 182, 193, 1);
+
+/* Tone: 1 */
+--rosa-claro1: #e29ba6;
+--rosa-claro1-opacidad-1: rgba(226, 155, 166, 0.2);
+--rosa-claro1-opacidad-2: rgba(226, 155, 166, 0.4);
+--rosa-claro1-opacidad-3: rgba(226, 155, 166, 0.6);
+--rosa-claro1-opacidad-4: rgba(226, 155, 166, 0.8);
+--rosa-claro1-opacidad-5: rgba(226, 155, 166, 1);
+
+/* Tone: 2 */
+--rosa-claro2: #c5818b;
+--rosa-claro2-opacidad-1: rgba(197, 129, 139, 0.2);
+--rosa-claro2-opacidad-2: rgba(197, 129, 139, 0.4);
+--rosa-claro2-opacidad-3: rgba(197, 129, 139, 0.6);
+--rosa-claro2-opacidad-4: rgba(197, 129, 139, 0.8);
+--rosa-claro2-opacidad-5: rgba(197, 129, 139, 1);
+
+/* Tone: 3 */
+--rosa-claro3: #a86771;
+--rosa-claro3-opacidad-1: rgba(168, 103, 113, 0.2);
+--rosa-claro3-opacidad-2: rgba(168, 103, 113, 0.4);
+--rosa-claro3-opacidad-3: rgba(168, 103, 113, 0.6);
+--rosa-claro3-opacidad-4: rgba(168, 103, 113, 0.8);
+--rosa-claro3-opacidad-5: rgba(168, 103, 113, 1);
+
+/* Tone: 4 */
+--rosa-claro4: #8b4e57;
+--rosa-claro4-opacidad-1: rgba(139, 78, 87, 0.2);
+--rosa-claro4-opacidad-2: rgba(139, 78, 87, 0.4);
+--rosa-claro4-opacidad-3: rgba(139, 78, 87, 0.6);
+--rosa-claro4-opacidad-4: rgba(139, 78, 87, 0.8);
+--rosa-claro4-opacidad-5: rgba(139, 78, 87, 1);
+
+/* Tone: 5 (Más oscuro) */
+--rosa-claro5: #6e353e;
+--rosa-claro5-opacidad-1: rgba(110, 53, 62, 0.2);
+--rosa-claro5-opacidad-2: rgba(110, 53, 62, 0.4);
+--rosa-claro5-opacidad-3: rgba(110, 53, 62, 0.6);
+--rosa-claro5-opacidad-4: rgba(110, 53, 62, 0.8);
+--rosa-claro5-opacidad-5: rgba(110, 53, 62, 1);
+
+/* ==========================================
+4) COLORES DE ESTADO (Colores Rígidos)
+========================================== */
+
+--error: #e53935;
+--dato-errado: #fb8c00;
+--correcto: #4caf50;
+}
