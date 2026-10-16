@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+</head>
+<body>
+
+    <h1>Registro vía API</h1>
+
+    <div id="mensaje" style="font-weight: bold;"></div>
+    <br>
+
+    <form id="formRegistro">
+        <div>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" required>
+        </div>
+        <br>
+        <div>
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" required>
+        </div>
+        <br>
+        <div>
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" id="email" required>
+        </div>
+        <br>
+        <div>
+            <label for="contrasena">Contraseña:</label><br>
+            <input type="password" id="contrasena" required>
+        </div>
+        <br>
+        <div>
+            <label for="idRol">ID Rol (opcional):</label><br>
+            <input type="number" id="idRol">
+        </div>
+        <br>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <!-- Importación del script externo desde la carpeta static/js/ -->
+    <script src="/js/registro.js"></script>
+</body>
+</html>
