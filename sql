@@ -34,6 +34,14 @@ CREATE TABLE `rol` (
   PRIMARY KEY (`id_rol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+insert into rol (nombre_rol) values
+("Administrador General"),
+("Administrador"),
+("escenografo"),
+("administrador de audio"),
+("Administrador de planilla"),
+("personal de postproduccion"),
+("usuario");
 CREATE TABLE `usuario` (
   `id_usuario` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre_usuario` VARCHAR(50) NOT NULL UNIQUE,
@@ -42,9 +50,12 @@ CREATE TABLE `usuario` (
   `email` VARCHAR(100) NOT NULL UNIQUE,
   `contrasena` VARCHAR(255) NOT NULL,
   `fecha_registro` DATETIME DEFAULT CURRENT_TIMESTAMP(),
-  `id_rol` INT(11) DEFAULT NULL,
+  `id_rol` INT(1) DEFAULT NULL default 0,
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+insert into usuario (nombre_usuario, nombre, apellido, email, contrasena, id_rol) values
+("a", "Administrador", "General", "admin@mediacore.com", "a", 1);
 
 CREATE TABLE `grilla` (
   `id_grilla` INT(11) NOT NULL AUTO_INCREMENT,
