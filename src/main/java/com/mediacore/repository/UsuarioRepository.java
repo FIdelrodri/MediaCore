@@ -8,11 +8,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     boolean existsByEmail(String email);
     boolean existsByNombreUsuario(String nombreUsuario);
+
+    // Métodos para buscar el usuario al iniciar sesión
+    Optional<Usuario> findByNombreUsuario(String nombreUsuario);
+    Optional<Usuario> findByEmail(String email);
 
     @Transactional
     @Modifying
