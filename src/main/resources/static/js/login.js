@@ -12,9 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const divMensaje = document.getElementById('mensaje');
 
+            function mostrarError(mensaje) {
+                divMensaje.textContent = mensaje;
+                divMensaje.classList.remove('exito');
+                divMensaje.classList.add('error');
+            }
+
+            function mostrarExito(mensaje) {
+                divMensaje.textContent = mensaje;
+                divMensaje.classList.remove('error');
+                divMensaje.classList.add('exito');
+            }
             if (!credenciales.nombreUsuario.trim() || !credenciales.contrasena) {
-                divMensaje.textContent = 'Por favor, completa todos los campos.';
-                divMensaje.style.color = 'red';
+                mostrarError('Por favor, completa todos los campos.');
                 return;
             }
 
@@ -30,20 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const resultado = await respuesta.json();
 
                 if (respuesta.ok) {
-                    divMensaje.textContent = resultado.mensaje;
-                    divMensaje.style.color = 'green';
-                    
+                    mostrarExito(resultado.mensaje);
                     setTimeout(() => {
                         window.location.href = '/panel';
                     }, 1000);
                 } else {
-                    divMensaje.textContent = resultado.mensaje;
-                    divMensaje.style.color = 'red';
+                    mostrarError(resultado.mensaje);
                 }
             } catch (error) {
                 console.error('Error al conectar con la API de login:', error);
-                divMensaje.textContent = 'Ocurrió un error al conectar con el servidor.';
-                divMensaje.style.color = 'red';
+                mostrarError('Ocurrió un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.');
             }
         });
     }

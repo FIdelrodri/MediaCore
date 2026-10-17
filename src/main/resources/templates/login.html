@@ -3,31 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Iniciar Sesión - MediaCore</title>
+    <link rel="stylesheet" href="/css/registro.css">
+    <link rel="stylesheet" href="/css/tema.css">
 </head>
 <body>
-
+    
+<div class="Fondo">
+    <!-- logo -->
+    <div class="barra_superior">
+        <!-- <img class="logowich_arriba" src="../../imagenes/reallogo.png" alt=""> -->
+    </div>
+    
+    <div class="formulario">
     <h1>Iniciar Sesión</h1>
 
-    <div id="mensaje" style="font-weight: bold;"></div>
+<div id="mensaje" class="Alerta" style="font-weight: bold;"></div>
     <br>
-
+    
     <form id="formLogin">
         <div>
-            <label for="nombreUsuario">Nombre de Usuario:</label><br>
+            <label class="nombreUsuario" for="nombreUsuario">Nombre de Usuario:</label><br>
             <input type="text" id="nombreUsuario" required>
         </div>
         <br>
         <div>
-            <label for="contrasena">Contraseña:</label><br>
+            <label class="contrasena" for="contrasena">Contraseña:</label><br>
             <input type="password" id="contrasena" required>
         </div>
         <br>
-        <button type="submit">Ingresar</button>
+        <div class="boton">
+            <button type="submit">Ingresar</button>
+        </div>
+        <br>
+        <a href="/registro">¿No tienes cuenta? Regístrate aquí</a>
+
     </form>
+    </div>
 
-    <br>
-    <a href="/registro">¿No tienes cuenta? Regístrate aquí</a>
-
+</div>
     <script src="/js/login.js"></script>
 </body>
 </html>
