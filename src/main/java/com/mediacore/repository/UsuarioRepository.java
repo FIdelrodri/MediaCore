@@ -16,7 +16,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     boolean existsByEmail(String email);
     boolean existsByNombreUsuario(String nombreUsuario);
 
-    // Métodos para buscar el usuario al iniciar sesión
     Optional<Usuario> findByNombreUsuario(String nombreUsuario);
     Optional<Usuario> findByEmail(String email);
 
@@ -29,5 +28,22 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
         @Param("p_apellido") String apellido,
         @Param("p_email") String email,
         @Param("p_contrasena") String contrasena
+    );
+
+    // Stored Procedure para modificar el rol de un usuario
+    @Transactional
+    @Modifying
+    @Procedure(procedureName = "asignar_rol_usuario")
+    void asignarRolUsuarioProcedure(
+        @Param("p_id_usuario") Integer idUsuario,
+        @Param("p_id_rol") Integer idRol
+    );
+
+    // Stored Procedure para eliminar un usuario
+    @Transactional
+    @Modifying
+    @Procedure(procedureName = "eliminar_usuario")
+    void eliminarUsuarioProcedure(
+        @Param("p_id_usuario") Integer idUsuario
     );
 }

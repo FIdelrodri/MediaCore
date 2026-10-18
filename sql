@@ -131,3 +131,20 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE asignar_rol_usuario(
+    IN p_id_usuario INT,
+    IN p_id_rol INT
+)
+begin
+  update usuario set id_rol = p_id_rol where id_usuario = p_id_usuario;
+end //
+
+delimiter //
+create procedure eliminar_usuario(
+    in p_id_usuario int
+)
+begin
+    delete from usuario where id_usuario = p_id_usuario;
+end //

@@ -20,13 +20,15 @@ public class Usuario {
         return usuarioRepository.existsByNombreUsuario(nombreUsuario);
     }
 
-    // Autenticación únicamente mediante nombreUsuario y contraseña
+    public boolean existePorId(Integer idUsuario) {
+        return usuarioRepository.existsById(idUsuario);
+    }
+
     public com.mediacore.model.Usuario autenticar(String nombreUsuario, String contrasena) {
         if (nombreUsuario == null || nombreUsuario.trim().isEmpty() || contrasena == null || contrasena.trim().isEmpty()) {
             return null;
         }
 
-        // Buscar únicamente por el campo nombreUsuario
         Optional<com.mediacore.model.Usuario> usuarioOpt = usuarioRepository.findByNombreUsuario(nombreUsuario);
 
         if (usuarioOpt.isPresent()) {
@@ -94,5 +96,15 @@ public class Usuario {
             usuario.getEmail(),
             usuario.getContrasena()
         );
+    }
+
+    // Método de servicio para asignar rol
+    public void asignarRolConProcedure(Integer idUsuario, Integer idRol) {
+        usuarioRepository.asignarRolUsuarioProcedure(idUsuario, idRol);
+    }
+
+    // Método de servicio para eliminar usuario
+    public void eliminarUsuarioConProcedure(Integer idUsuario) {
+        usuarioRepository.eliminarUsuarioProcedure(idUsuario);
     }
 }
