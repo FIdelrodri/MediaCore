@@ -1,0 +1,105 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Chrome, Safari, Opera y Edge moderno */
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.logowich_arriba {
+    min-height: 75px;
+    height: 75px;
+}
+
+.Fondo {
+    background-color: var(--rosa-claro-4-opacidad-3);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 90px;
+}
+.encabezado_panel {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--granate);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.barra_superior {
+    background: var(--granate);
+    position: absolute;
+    padding: 0.5rem;
+    min-height: 75px;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.lista_opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 0;
+    margin: 2rem 0;
+    list-style: none;
+}
+
+.tarjeta_modulo {
+    width: 550px;          /* Ancho */
+    height: 300px;         /* Alto */
+    background-color: #ffffff;
+    border-radius: 12px;
+    border-top: 6px solid var(--marron-claro3); /* Línea superior marrón */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.tarjeta_modulo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.boton_modulo {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    text-decoration: none;
+    height: 100%;
+}
+
+.titulo_tarjeta {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--granate);
+    margin-bottom: 10px;
+}
+
+.desc_tarjeta {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+}

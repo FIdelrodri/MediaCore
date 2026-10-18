@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Panel General - MediaCore</title>
+    <link rel="stylesheet" href="/css/tema.css">
+    <link rel="stylesheet" href="/css/panel.css">
 </head>
 <body>
-    <header>
-        <img src="/img/MediacoreLogo.png" alt="MediaCore Logo" width="120">
-        <h1>Panel General de Usuario</h1>
-    </header>
 
-    <main>
-        <p>Bienvenido al sistema MediaCore.</p>
-        <p>Esta vista es accesible para cualquier usuario que tenga una cuenta iniciada.</p>
+    <div class="Fondo">
+        <!-- Barra superior -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="/img/MediacoreLogo.png" alt="MediaCore Logo"> 
+        </div>
 
-        <nav>
-            <ul>
-                <li><a href="/administracion">Ir a Sección de Administración (Solo Rol 1)</a></li>
-            </ul>
-        </nav>
-    </main>
+        <main class="contenido_panel">
+            <div class="encabezado_panel">
+                <h2>Panel General</h2>
+            </div>
+
+            <nav style="width: 100%;">
+                <ul class="lista_opciones">
+                    <!-- Tarjeta 1: Administración (Solo Rol 1) -->
+                    <li class="tarjeta_modulo" data-roles-permitidos="1" style="display: none;">
+                        <a href="/administracion" class="boton_modulo">
+                            <span class="titulo_tarjeta">Administración</span>
+                            <span class="desc_tarjeta">Acceso exclusivo a la gestión del sistema y configuración avanzada de usuarios.</span>
+                        </a>
+                    </li>
+                
+                </ul>
+            </nav>
+        </main>
+    </div>
+
+    <script src="/js/panel.js"></script>
 </body>
 </html>
