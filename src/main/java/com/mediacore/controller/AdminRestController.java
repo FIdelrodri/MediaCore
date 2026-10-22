@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -19,7 +21,7 @@ public class AdminRestController {
     @Autowired
     private com.mediacore.service.Usuario usuarioService;
 
-    // metodo auxiliar para validar si quien realiza la peticion es Administrador (Rol 1)
+    // método auxiliar para validar si quien realiza la petición es Administrador (Rol 1)
     private boolean esAdministrador(HttpSession session) {
         Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
         return usuarioLogueado != null && Integer.valueOf(1).equals(usuarioLogueado.getIdRol());
@@ -91,5 +93,17 @@ public class AdminRestController {
         respuesta.put("status", "ok");
         respuesta.put("mensaje", "Usuario eliminado exitosamente.");
         return ResponseEntity.ok(respuesta);
+    }
+
+    // API 3: Listar Usuarios
+    @GetMapping("/usuarios")
+    public ResponseEntity<?> listarUsuarios(HttpSession session) {
+        if (!esAdministrador(session)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Collections.singletonMap("mensaje", "Acceso denegado."));
+        }
+
+        List<Usuario> usuarios = usuarioService.obtenerTodos();
+        return ResponseEntity.ok(usuarios);
     }
 }

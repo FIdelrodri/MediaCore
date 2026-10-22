@@ -23,3 +23,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error al verificar el rol del usuario:', error);
     }
 });
+//boton de cerrar sesion
+document.addEventListener('DOMContentLoaded', () => {
+    const btnLogout = document.getElementById('btnCerrarSesion');
+    if (btnLogout) {
+        btnLogout.addEventListener('click', cerrarSesion);
+    }
+});
+
+async function cerrarSesion() {
+    try {
+        const respuesta = await fetch('/api/auth/logout', {
+            method: 'POST'
+        });
+
+        if (respuesta.ok) {
+            window.location.href = '/login';
+        } else {
+            console.error('Error al cerrar sesión');
+        }
+    } catch (error) {
+        console.error('Error de red al intentar cerrar sesión:', error);
+    }
+}

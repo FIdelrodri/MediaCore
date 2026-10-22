@@ -4,6 +4,7 @@ import com.mediacore.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +23,10 @@ public class Usuario {
 
     public boolean existePorId(Integer idUsuario) {
         return usuarioRepository.existsById(idUsuario);
+    }
+
+    public List<com.mediacore.model.Usuario> obtenerTodos() {
+        return usuarioRepository.findAll();
     }
 
     public com.mediacore.model.Usuario autenticar(String nombreUsuario, String contrasena) {

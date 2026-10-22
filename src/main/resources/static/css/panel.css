@@ -103,3 +103,24 @@ body::-webkit-scrollbar {
     color: #666;
     line-height: 1.4;
 }
+.barra_superior {
+    display: flex;
+    align-items: center;
+}
+
+.btn_logout {
+    margin-left: auto;
+    background-color: var(--granate);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn_logout:hover {
+    opacity: 0.85;
+}
