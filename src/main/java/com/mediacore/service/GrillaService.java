@@ -130,4 +130,46 @@ public class GrillaService {
         }
         return valor;
     }
+
+    // ---- Reordenamiento de la cola ----
+
+    public Integer insertarEnPosicion(Integer idBloque, Integer posicion) {
+        try {
+            return grillaRepository.insertarBloqueEnPosicionProcedure(idBloque, posicion);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ErrorBD.mensaje(e));
+        }
+    }
+
+    public void intercambiar(Integer posicionA, Integer posicionB) {
+        try {
+            grillaRepository.intercambiarPosicionesProcedure(posicionA, posicionB);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ErrorBD.mensaje(e));
+        }
+    }
+
+    public void mover(Integer origen, Integer destino) {
+        try {
+            grillaRepository.moverBloqueProcedure(origen, destino);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ErrorBD.mensaje(e));
+        }
+    }
+
+    public void reemplazar(Integer posicion, Integer idBloqueNuevo) {
+        try {
+            grillaRepository.reemplazarBloqueProcedure(posicion, idBloqueNuevo);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ErrorBD.mensaje(e));
+        }
+    }
+
+    public void duplicar(Integer posicion) {
+        try {
+            grillaRepository.duplicarPosicionProcedure(posicion);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ErrorBD.mensaje(e));
+        }
+    }
 }

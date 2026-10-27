@@ -1,5 +1,7 @@
 package com.mediacore.controller;
 
+import com.mediacore.dto.IntercambiarPosicionesRequest;
+import com.mediacore.dto.MoverBloqueRequest;
 import com.mediacore.model.Usuario;
 import com.mediacore.service.GrillaService;
 import jakarta.servlet.http.HttpSession;
@@ -157,5 +159,68 @@ public class GrillaRestController {
         }
         grillaService.vaciar();
         return ResponseEntity.ok(respuesta("ok", "Grilla vaciada."));
+    }
+
+    // API: insertar un bloque en una posicion de la cola (procedure insertar_bloque_en_posicion)
+    @PostMapping("/posiciones/{posicion}/bloques/{idBloque}")
+    public ResponseEntity<Map<String, Object>> insertar(@PathVariable Integer posicion,
+                                                        @PathVariable Integer idBloque,
+                                                        HttpSession session) {
+        ResponseEntity<Map<String, Object>> error = verificarAcceso(session, ROLES_PLANILLA);
+        if (error != null) {
+            return error;
+        }
+        Integer idPosicion = grillaService.insertarEnPosicion(idBloque, posicion);
+
+        Map<String, Object> respuesta = respuesta("ok", "Bloque insertado en la grilla.");
+        respuesta.put("idPosicion", idPosicion);
+        return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);
+    }
+
+    // API: intercambiar dos posiciones (procedure intercambiar_posiciones)
+    @PutMapping("/intercambiar")
+    public ResponseEntity<Map<String, Object>> intercambiar(@RequestBody IntercambiarPosicionesRequest request,
+                                                            HttpSession session) {
+        ResponseEntity<Map<String, Object>> error = verificarAcceso(session, ROLES_PLANILLA);
+        if (error != null) {
+            return error;
+        }
+        grillaService.intercambiar(request.getPosicionA(), request.getPosicionB());
+        return ResponseEntity.ok(respuesta("ok", "Posiciones intercambiadas."));
+    }
+
+    // API: mover un bloque a otra posicion (procedure mover_bloque)
+    @PutMapping("/mover")
+    public ResponseEntity<Map<String, Object>> mover(@RequestBody MoverBloqueRequest request, HttpSession session) {
+        ResponseEntity<Map<String, Object>> error = verificarAcceso(session, ROLES_PLANILLA);
+        if (error != null) {
+            return error;
+        }
+        grillaService.mover(request.getOrigen(), request.getDestino());
+        return ResponseEntity.ok(respuesta("ok", "Bloque movido."));
+    }
+
+    // API: reemplazar el contenido de una posicion (procedure reemplazar_bloque)
+    @PutMapping("/posiciones/{posicion}/bloques/{idBloque}")
+    public ResponseEntity<Map<String, Object>> reemplazar(@PathVariable Integer posicion,
+                                                          @PathVariable Integer idBloque,
+                                                          HttpSession session) {
+        ResponseEntity<Map<String, Object>> error = verificarAcceso(session, ROLES_PLANILLA);
+        if (error != null) {
+            return error;
+        }
+        grillaService.reemplazar(posicion, idBloque);
+        return ResponseEntity.ok(respuesta("ok", "Bloque reemplazado."));
+    }
+
+    // API: duplicar una posicion justo despues de si misma (procedure duplicar_posicion)
+    @PostMapping("/posiciones/{posicion}/duplicar")
+    public ResponseEntity<Map<String, Object>> duplicar(@PathVariable Integer posicion, HttpSession session) {
+        ResponseEntity<Map<String, Object>> error = verificarAcceso(session, ROLES_PLANILLA);
+        if (error != null) {
+            return error;
+        }
+        grillaService.duplicar(posicion);
+        return ResponseEntity.status(HttpStatus.CREATED).body(respuesta("ok", "Posición duplicada."));
     }
 }

@@ -64,4 +64,47 @@ public interface GrillaRepository extends JpaRepository<Grilla, Integer> {
     @Modifying
     @Procedure(procedureName = "vaciar_grilla")
     void vaciarGrillaProcedure();
+
+    // ---- Reordenamiento de la cola (la posicion 1 esta al aire y no se puede tocar) ----
+
+    // Inserta un bloque en una posicion y corre los demas (devuelve el id de la nueva fila por el parametro OUT)
+    @Transactional
+    @Procedure(procedureName = "insertar_bloque_en_posicion", outputParameterName = "p_id_posicion")
+    Integer insertarBloqueEnPosicionProcedure(
+        @Param("p_id_bloque") Integer idBloque,
+        @Param("p_posicion") Integer posicion
+    );
+
+    // Intercambia dos posiciones de la cola
+    @Transactional
+    @Modifying
+    @Procedure(procedureName = "intercambiar_posiciones")
+    void intercambiarPosicionesProcedure(
+        @Param("p_pos_a") Integer posicionA,
+        @Param("p_pos_b") Integer posicionB
+    );
+
+    // Mueve un bloque a otra posicion y corre los del medio
+    @Transactional
+    @Modifying
+    @Procedure(procedureName = "mover_bloque")
+    void moverBloqueProcedure(
+        @Param("p_pos_origen") Integer origen,
+        @Param("p_pos_destino") Integer destino
+    );
+
+    // Cambia el contenido de una posicion sin alterar el orden
+    @Transactional
+    @Modifying
+    @Procedure(procedureName = "reemplazar_bloque")
+    void reemplazarBloqueProcedure(
+        @Param("p_posicion") Integer posicion,
+        @Param("p_id_bloque_nuevo") Integer idBloqueNuevo
+    );
+
+    // Repite un bloque justo despues de su posicion
+    @Transactional
+    @Modifying
+    @Procedure(procedureName = "duplicar_posicion")
+    void duplicarPosicionProcedure(@Param("p_posicion") Integer posicion);
 }
