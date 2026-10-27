@@ -1,6 +1,7 @@
 package com.mediacore.controller;
 
 import com.mediacore.dto.AsignarRolRequest;
+import com.mediacore.dto.DegradarUsuarioRequest;
 import com.mediacore.dto.EliminarUsuarioRequest;
 import com.mediacore.model.Usuario;
 import com.mediacore.service.UsuarioService;
@@ -104,7 +105,85 @@ public class AdminRestController {
                     .body(Collections.singletonMap("mensaje", "Acceso denegado."));
         }
 
-        List<Usuario> usuarios = usuarioService.obtenerTodos();
-        return ResponseEntity.ok(usuarios);
+        return ResponseEntity.ok(usuarioService.listarUsuarios());
+    }
+
+    // API 4: Buscar usuarios por texto (procedure buscar_usuario)
+    @GetMapping("/usuarios/buscar")
+    public ResponseEntity<?> buscarUsuarios(@RequestParam(defaultValue = "") String texto, HttpSession session) {
+        if (!esAdministrador(session)) {
+            return accesoDenegado();
+        }
+        return ResponseEntity.ok(usuarioService.buscarUsuarios(texto));
+    }
+
+    // API 5: Usuarios registrados en los ultimos N dias (procedure listar_usuarios_recientes)
+    @GetMapping("/usuarios/recientes")
+    public ResponseEntity<?> usuariosRecientes(@RequestParam(defaultValue = "7") Integer dias, HttpSession session) {
+        if (!esAdministrador(session)) {
+            return accesoDenegado();
+        }
+        if (dias == null || dias < 1) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("mensaje", "La cantidad de días debe ser mayor a 0."));
+        }
+        return ResponseEntity.ok(usuarioService.listarUsuariosRecientes(dias));
+    }
+
+    // API 6: Devolver un usuario al rol "usuario" (procedure degradar_a_usuario)
+    @PutMapping("/degradar-usuario")
+    public ResponseEntity<Map<String, String>> degradarUsuario(@RequestBody DegradarUsuarioRequest request, HttpSession session) {
+        Map<String, String> respuesta = new HashMap<>();
+
+        if (!esAdministrador(session)) {
+            respuesta.put("status", "error");
+            respuesta.put("mensaje", "Acceso denegado: Se requieren permisos de Administrador.");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(respuesta);
+        }
+
+        if (request.getIdUsuario() == null) {
+            respuesta.put("status", "error");
+            respuesta.put("mensaje", "El ID de usuario es obligatorio.");
+            return ResponseEntity.badRequest().body(respuesta);
+        }
+
+        if (!usuarioService.existePorId(request.getIdUsuario())) {
+            respuesta.put("status", "error");
+            respuesta.put("mensaje", "El usuario especificado no existe.");
+            return ResponseEntity.badRequest().body(respuesta);
+        }
+
+        usuarioService.degradarAUsuario(request.getIdUsuario());
+
+        respuesta.put("status", "ok");
+        respuesta.put("mensaje", "El usuario volvió al rol de Usuario.");
+        return ResponseEntity.ok(respuesta);
+    }
+
+    // API 7: Historial de cambios de rol (procedure ver_log_cambios_rol)
+    @GetMapping("/log-cambios-rol")
+    public ResponseEntity<?> logCambiosRol(@RequestParam(defaultValue = "50") Integer limite, HttpSession session) {
+        if (!esAdministrador(session)) {
+            return accesoDenegado();
+        }
+        if (limite == null || limite < 1) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("mensaje", "El límite debe ser mayor a 0."));
+        }
+        return ResponseEntity.ok(usuarioService.verLogCambiosRol(limite));
+    }
+
+    private ResponseEntity<Map<String, String>> accesoDenegado() {
+        Map<String, String> respuesta = new HashMap<>();
+        respuesta.put("status", "error");
+        respuesta.put("mensaje", "Acceso denegado: Se requieren permisos de Administrador.");
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(respuesta);
+    }
+
+    // Errores lanzados por los procedures (SIGNAL), por ejemplo al quitar el rol al ultimo Administrador General
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> manejarError(IllegalArgumentException e) {
+        Map<String, String> respuesta = new HashMap<>();
+        respuesta.put("status", "error");
+        respuesta.put("mensaje", e.getMessage());
+        return ResponseEntity.badRequest().body(respuesta);
     }
 }
