@@ -1,6 +1,7 @@
 package com.mediacore.controller;
 
 import com.mediacore.model.Usuario;
+import com.mediacore.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.Map;
 public class UsuarioRestController {
 
     @Autowired
-    private com.mediacore.service.Usuario usuarioService;
+    private UsuarioService usuarioService;
 
     @PostMapping("/registro")
     public ResponseEntity<Map<String, String>> registrar(@RequestBody Usuario usuario) {

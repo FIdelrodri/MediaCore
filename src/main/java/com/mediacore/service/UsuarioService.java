@@ -1,5 +1,6 @@
 package com.mediacore.service;
 
+import com.mediacore.model.Usuario;
 import com.mediacore.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class Usuario {
+public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -25,19 +26,19 @@ public class Usuario {
         return usuarioRepository.existsById(idUsuario);
     }
 
-    public List<com.mediacore.model.Usuario> obtenerTodos() {
+    public List<Usuario> obtenerTodos() {
         return usuarioRepository.findAll();
     }
 
-    public com.mediacore.model.Usuario autenticar(String nombreUsuario, String contrasena) {
+    public Usuario autenticar(String nombreUsuario, String contrasena) {
         if (nombreUsuario == null || nombreUsuario.trim().isEmpty() || contrasena == null || contrasena.trim().isEmpty()) {
             return null;
         }
 
-        Optional<com.mediacore.model.Usuario> usuarioOpt = usuarioRepository.findByNombreUsuario(nombreUsuario);
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByNombreUsuario(nombreUsuario);
 
         if (usuarioOpt.isPresent()) {
-            com.mediacore.model.Usuario usuario = usuarioOpt.get();
+            Usuario usuario = usuarioOpt.get();
             if (usuario.getContrasena().equals(contrasena)) {
                 return usuario;
             }
@@ -46,7 +47,7 @@ public class Usuario {
         return null;
     }
 
-    public String validarDatosUsuario(com.mediacore.model.Usuario usuario) {
+    public String validarDatosUsuario(Usuario usuario) {
         if (usuario.getNombreUsuario() == null || usuario.getNombreUsuario().trim().isEmpty()) {
             return "El nombre de usuario no puede estar vacío.";
         }
@@ -93,7 +94,7 @@ public class Usuario {
         return null;
     }
 
-    public void registrarUsuarioConProcedure(com.mediacore.model.Usuario usuario) {
+    public void registrarUsuarioConProcedure(Usuario usuario) {
         usuarioRepository.registrarUsuarioProcedure(
             usuario.getNombreUsuario(),
             usuario.getNombre(),

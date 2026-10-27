@@ -3,6 +3,7 @@ package com.mediacore.controller;
 import com.mediacore.dto.AsignarRolRequest;
 import com.mediacore.dto.EliminarUsuarioRequest;
 import com.mediacore.model.Usuario;
+import com.mediacore.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class AdminRestController {
 
     @Autowired
-    private com.mediacore.service.Usuario usuarioService;
+    private UsuarioService usuarioService;
 
     // método auxiliar para validar si quien realiza la petición es Administrador (Rol 1)
     private boolean esAdministrador(HttpSession session) {

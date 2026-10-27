@@ -2,6 +2,7 @@ package com.mediacore.controller;
 
 import com.mediacore.dto.LoginRequest;
 import com.mediacore.model.Usuario;
+import com.mediacore.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import java.util.Map;
 public class AuthRestController {
 
     @Autowired
-    private com.mediacore.service.Usuario usuarioService;
+    private UsuarioService usuarioService;
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
