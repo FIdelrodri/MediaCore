@@ -637,54 +637,8 @@ BEGIN
 END $$
 
 -- =====================================================================
--- 10. PROCEDIMIENTOS: ROL
+-- 10. PROCEDIMIENTOS: ROL (la tabla rol es fija: solo consultas)
 -- =====================================================================
-
-CREATE PROCEDURE crear_rol(IN p_nombre_rol VARCHAR(50), OUT p_id_rol INT)
-BEGIN
-  IF p_nombre_rol IS NULL OR TRIM(p_nombre_rol) = '' THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El nombre del rol es obligatorio';
-  END IF;
-  IF EXISTS (SELECT 1 FROM rol WHERE nombre_rol = p_nombre_rol) THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ya existe un rol con ese nombre';
-  END IF;
-  INSERT INTO rol (nombre_rol) VALUES (TRIM(p_nombre_rol));
-  SET p_id_rol = LAST_INSERT_ID();
-END $$
-
-CREATE PROCEDURE renombrar_rol(IN p_id_rol INT, IN p_nombre_rol VARCHAR(50))
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM rol WHERE id_rol = p_id_rol) THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El rol no existe';
-  END IF;
-  IF EXISTS (SELECT 1 FROM rol WHERE nombre_rol = p_nombre_rol AND id_rol <> p_id_rol) THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ya existe un rol con ese nombre';
-  END IF;
-  UPDATE rol SET nombre_rol = TRIM(p_nombre_rol) WHERE id_rol = p_id_rol;
-END $$
-
--- Los usuarios del rol eliminado pasan a "usuario" (id 7)
-CREATE PROCEDURE eliminar_rol(IN p_id_rol INT)
-BEGIN
-  DECLARE EXIT HANDLER FOR SQLEXCEPTION
-  BEGIN
-    ROLLBACK;
-    RESIGNAL;
-  END;
-
-  IF NOT EXISTS (SELECT 1 FROM rol WHERE id_rol = p_id_rol) THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El rol no existe';
-  END IF;
-  IF p_id_rol IN (1, 7) THEN
-    SIGNAL SQLSTATE '45000'
-      SET MESSAGE_TEXT = 'Los roles Administrador General y usuario no se pueden eliminar';
-  END IF;
-
-  START TRANSACTION;
-  UPDATE usuario SET id_rol = 7 WHERE id_rol = p_id_rol;
-  DELETE FROM rol WHERE id_rol = p_id_rol;
-  COMMIT;
-END $$
 
 CREATE PROCEDURE listar_usuarios_por_rol(IN p_id_rol INT)
 BEGIN
