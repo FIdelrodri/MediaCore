@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Programas - MediaCore</title>
+    <link rel="stylesheet" href="/css/tema.css">
+    <link rel="stylesheet" href="/css/administracion.css">
+    <link rel="stylesheet" href="/css/programas.css">
+</head>
+<body>
+
+    <div class="Fondo">
+        <!-- Barra superior -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="/img/MediacoreLogo.png" alt="MediaCore Logo">
+            <a href="/panel" class="btn_volver">Volver al Panel</a>
+        </div>
+
+        <main class="contenido_admin">
+            <div class="tarjeta_admin">
+                <h2>Gestión de Programas</h2>
+                <p class="descripcion_seccion">Consulta, crea, modifica y elimina los programas disponibles.</p>
+
+                <!-- Mensaje de alerta unificado con Login y Registro -->
+                <div id="mensaje" class="Alerta"></div>
+
+                <!-- Formulario de alta y edición (solo roles 1 y 6) -->
+                <form id="formPrograma" class="form_programa" style="display: none;">
+                    <h3 id="tituloForm">Nuevo programa</h3>
+                    <input type="hidden" id="idPrograma">
+                    <div class="fila_form">
+                        <input type="text" id="nombre" placeholder="Nombre" maxlength="100" required>
+                        <input type="text" id="genero" placeholder="Género" maxlength="50">
+                        <input type="number" id="duracion" placeholder="Duración (segundos)" min="1" required>
+                    </div>
+                    <textarea id="descripcion" placeholder="Descripción" maxlength="500" rows="2"></textarea>
+                    <div class="acciones_form">
+                        <button type="submit" class="btn_guardar" id="btnGuardar">Crear programa</button>
+                        <button type="button" class="btn_cancelar" id="btnCancelar" style="display: none;">Cancelar edición</button>
+                    </div>
+                </form>
+
+                <!-- Búsqueda por JS sobre la lista ya cargada -->
+                <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre, género o descripción...">
+
+                <div class="tabla_contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Género</th>
+                                <th>Duración</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista_programas">
+                            <!-- Se llena dinámicamente desde JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/programas.js"></script>
+</body>
+</html>

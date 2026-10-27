@@ -20,11 +20,11 @@ public class ProgramaRestController {
     private ProgramaService programaService;
 
     // Roles segun la carpeta de campo (20/8):
-    //  1 Administrador General, 6 Personal de postproduccion (administran el contenido)
-    //  1 Administrador General, 2 Administrador, 5 Administrador de planilla (modifican la planilla)
-    private static final int[] ROLES_CONTENIDO = {1, 6};
+    //  1 Administrador General, 2 Administrador, 6 Personal de postproduccion (administran el contenido)
+    //  1 Administrador General, 2 Administrador, 5 Administrador de planilla (modifican la planilla; se usa desde la vista de la grilla)
+    private static final int[] ROLES_CONTENIDO = {1, 2, 6};
     private static final int[] ROLES_PLANILLA = {1, 2, 5};
-    private static final int[] ROLES_CONSULTA = {1, 2, 5, 6};
+    private static final int[] ROLES_CONSULTA = {1, 2, 6};
 
     private Map<String, Object> respuesta(String status, String mensaje) {
         Map<String, Object> respuesta = new HashMap<>();

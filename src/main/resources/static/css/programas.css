@@ -1,0 +1,86 @@
+.form_programa {
+    background-color: #f8f8f8;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.form_programa h3 {
+    color: var(--granate);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.fila_form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.fila_form input {
+    flex: 1;
+    min-width: 160px;
+}
+
+.form_programa input,
+.form_programa textarea,
+.buscador {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.form_programa textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.buscador {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.acciones_form {
+    margin-top: 10px;
+}
+
+.btn_editar,
+.btn_programar,
+.btn_cancelar {
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-right: 5px;
+}
+
+.btn_editar {
+    background-color: #007bff;
+}
+
+.btn_editar:hover {
+    background-color: #0069d9;
+}
+
+.btn_programar {
+    background-color: var(--granate);
+}
+
+.btn_programar:hover {
+    background-color: var(--granate2);
+}
+
+.btn_cancelar {
+    background-color: #6c757d;
+}
+
+.btn_cancelar:hover {
+    background-color: #5a6268;
+}

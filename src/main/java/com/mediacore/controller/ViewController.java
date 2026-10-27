@@ -71,4 +71,16 @@ public class ViewController {
         model.addAttribute("usuario", usuarioLogueado);
         return "administracion"; // Carga templates/administracion.html
     }
+
+    // Vista de Programas (roles 1, 2 y 6)
+    @GetMapping("/programas")
+    public String mostrarProgramas(HttpSession session, Model model) {
+        if (!tieneAcceso(session, 1, 2, 6)) {
+            return "redirect:/pagina-inexistente";
+        }
+
+        Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
+        model.addAttribute("usuario", usuarioLogueado);
+        return "programas"; // Carga templates/programas.html
+    }
 }
