@@ -55,12 +55,15 @@ public class AnuncioRestController {
         return ResponseEntity.badRequest().body(respuesta("error", e.getMessage()));
     }
 
-    // API: listar anuncios; con ?empresa= filtra (procedure listar_anuncios_por_empresa)
+    // API: listar anuncios (procedure listar_anuncios); con ?empresa= filtra (procedure listar_anuncios_por_empresa)
     @GetMapping
     public ResponseEntity<?> listar(@RequestParam(defaultValue = "") String empresa, HttpSession session) {
         ResponseEntity<Map<String, Object>> error = verificarAcceso(session, ROLES_CONSULTA);
         if (error != null) {
             return error;
+        }
+        if (empresa.trim().isEmpty()) {
+            return ResponseEntity.ok(anuncioService.listar());
         }
         return ResponseEntity.ok(anuncioService.listarPorEmpresa(empresa));
     }

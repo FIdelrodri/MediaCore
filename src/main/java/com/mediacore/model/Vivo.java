@@ -11,7 +11,7 @@ public class Vivo {
     @Column(name = "id_envivo")
     private Integer idEnvivo;
 
-    @Column(name = "titulo", nullable = false, length = 20)
+    @Column(name = "titulo", nullable = false, length = 100)
     private String titulo;
 
     @Column(name = "descripcion", nullable = false, length = 500)
@@ -20,7 +20,7 @@ public class Vivo {
     @Column(name = "duracion", nullable = false)
     private Integer duracion;
 
-    @Column(name = "retrasmitido", nullable = false)
+    @Column(name = "retransmitido", nullable = false)
     private Boolean retrasmitido;
 
     public Vivo() {}

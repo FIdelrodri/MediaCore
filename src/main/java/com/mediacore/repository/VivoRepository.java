@@ -52,6 +52,11 @@ public interface VivoRepository extends JpaRepository<Vivo, Integer> {
     @Procedure(procedureName = "programar_vivo")
     void programarVivoProcedure(@Param("p_id_envivo") Integer idEnvivo);
 
+    // Stored Procedure que lista todos los vivos
+    // columnas: id_envivo, titulo, descripcion, duracion, retransmitido
+    @Query(value = "CALL listar_vivos()", nativeQuery = true)
+    List<Object[]> listarVivosProcedure();
+
     // Stored Procedure que lista los vivos que todavia no fueron retransmitidos
     // columnas: id_envivo, titulo, descripcion, duracion, retransmitido
     @Query(value = "CALL listar_vivos_pendientes()", nativeQuery = true)

@@ -84,9 +84,18 @@ public class VivoService {
         }
     }
 
+    public List<Map<String, Object>> listar() {
+        return filasAVivos(vivoRepository.listarVivosProcedure());
+    }
+
     public List<Map<String, Object>> listarPendientes() {
+        return filasAVivos(vivoRepository.listarVivosPendientesProcedure());
+    }
+
+    // Convierte las filas de los procedures en mapas con nombres en camelCase para el JSON
+    private List<Map<String, Object>> filasAVivos(List<Object[]> filas) {
         List<Map<String, Object>> vivos = new ArrayList<>();
-        for (Object[] fila : vivoRepository.listarVivosPendientesProcedure()) {
+        for (Object[] fila : filas) {
             Map<String, Object> vivo = new LinkedHashMap<>();
             vivo.put("idEnvivo", fila[0]);
             vivo.put("titulo", fila[1]);

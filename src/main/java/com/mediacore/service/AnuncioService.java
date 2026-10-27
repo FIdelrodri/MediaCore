@@ -78,9 +78,12 @@ public class AnuncioService {
         }
     }
 
-    // Con la empresa vacia el LIKE del procedure coincide con todos los anuncios
+    public List<Map<String, Object>> listar() {
+        return filasAAnuncios(anuncioRepository.listarAnunciosProcedure());
+    }
+
     public List<Map<String, Object>> listarPorEmpresa(String empresa) {
-        return filasAAnuncios(anuncioRepository.listarAnunciosPorEmpresaProcedure(empresa == null ? "" : empresa.trim()));
+        return filasAAnuncios(anuncioRepository.listarAnunciosPorEmpresaProcedure(empresa.trim()));
     }
 
     public List<Map<String, Object>> listarPorDuracion(Integer min, Integer max) {

@@ -55,6 +55,16 @@ public class VivoRestController {
         return ResponseEntity.badRequest().body(respuesta("error", e.getMessage()));
     }
 
+    // API: listar todos los vivos (procedure listar_vivos)
+    @GetMapping
+    public ResponseEntity<?> listar(HttpSession session) {
+        ResponseEntity<Map<String, Object>> error = verificarAcceso(session, ROLES_CONSULTA);
+        if (error != null) {
+            return error;
+        }
+        return ResponseEntity.ok(vivoService.listar());
+    }
+
     // API: listar los vivos que todavia no fueron retransmitidos (procedure listar_vivos_pendientes)
     @GetMapping("/pendientes")
     public ResponseEntity<?> listarPendientes(HttpSession session) {

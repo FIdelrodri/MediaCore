@@ -50,6 +50,11 @@ public interface AnuncioRepository extends JpaRepository<Anuncio, Integer> {
     @Procedure(procedureName = "insertar_anuncio_en_grilla")
     void insertarAnuncioEnGrillaProcedure(@Param("p_id_anuncio") Integer idAnuncio);
 
+    // Stored Procedure que lista todos los anuncios
+    // columnas: id_anuncio, nombre, descripcion, genero, duracion, empresa
+    @Query(value = "CALL listar_anuncios()", nativeQuery = true)
+    List<Object[]> listarAnunciosProcedure();
+
     // Stored Procedure que busca anuncios por empresa (coincidencia parcial)
     // columnas: id_anuncio, nombre, descripcion, genero, duracion, empresa
     @Query(value = "CALL listar_anuncios_por_empresa(:empresa)", nativeQuery = true)
