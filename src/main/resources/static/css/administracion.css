@@ -147,7 +147,6 @@ select {
     background-color: #c82333;
 }
 
-/* Estilo base del div de alerta (igual a login y registro) */
 .Alerta {
     display: none;
     width: 100%;
@@ -161,14 +160,12 @@ select {
     margin-bottom: 20px;
 }
 
-/* Cuando se activa el estado de error */
 .Alerta.error {
     display: block;
     border-color: red;
     color: red;
 }
 
-/* Cuando se activa el estado de éxito */
 .Alerta.exito {
     display: block;
     border-color: green;
