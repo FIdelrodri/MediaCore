@@ -107,4 +107,16 @@ public class ViewController {
         model.addAttribute("usuario", usuarioLogueado);
         return "anuncios"; // Carga templates/anuncios.html
     }
+
+    // Vista de Perfil (cualquier usuario con sesión y rol)
+    @GetMapping("/perfil")
+    public String mostrarPerfil(HttpSession session, Model model) {
+        if (!tieneAcceso(session)) {
+            return "redirect:/pagina-inexistente";
+        }
+
+        Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
+        model.addAttribute("usuario", usuarioLogueado);
+        return "perfil"; // Carga templates/perfil.html
+    }
 }

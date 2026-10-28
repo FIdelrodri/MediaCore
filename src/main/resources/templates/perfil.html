@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Perfil - MediaCore</title>
+    <link rel="stylesheet" href="/css/tema.css">
+    <link rel="stylesheet" href="/css/administracion.css">
+    <link rel="stylesheet" href="/css/programas.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+</head>
+<body>
+
+    <div class="Fondo">
+        <!-- Barra superior -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="/img/MediacoreLogo.png" alt="MediaCore Logo">
+            <a href="/panel" class="btn_volver">Volver al Panel</a>
+        </div>
+
+        <main class="contenido_admin">
+            <div class="tarjeta_admin">
+                <h2>Mi Perfil</h2>
+                <p class="descripcion_seccion">Consulta y modifica tus datos personales y tu contraseña.</p>
+
+                <!-- Mensaje de alerta unificado con Login y Registro -->
+                <div id="mensaje" class="Alerta"></div>
+
+                <div class="resumen_perfil">
+                    <img class="perfil_img" src="/img/usuario_logo.png" alt="Usuario">
+                    <div>
+                        <div class="perfil_usuario" id="perfilUsuario">-</div>
+                        <div class="perfil_rol" id="perfilRol">-</div>
+                    </div>
+                </div>
+
+                <!-- Datos personales -->
+                <form id="formDatos" class="form_programa">
+                    <h3>Datos personales</h3>
+                    <div class="fila_form">
+                        <input type="text" id="nombre" placeholder="Nombre" maxlength="25" required>
+                        <input type="text" id="apellido" placeholder="Apellido" maxlength="25" required>
+                    </div>
+                    <div class="fila_form">
+                        <input type="email" id="email" placeholder="Correo electrónico" maxlength="50" required>
+                    </div>
+                    <div class="acciones_form">
+                        <button type="submit" class="btn_guardar">Guardar datos</button>
+                    </div>
+                </form>
+
+                <!-- Cambio de contraseña -->
+                <form id="formContrasena" class="form_programa">
+                    <h3>Cambiar contraseña</h3>
+                    <div class="fila_form">
+                        <input type="password" id="contrasenaActual" placeholder="Contraseña actual" required>
+                    </div>
+                    <div class="fila_form">
+                        <input type="password" id="contrasenaNueva" placeholder="Contraseña nueva" required>
+                        <input type="password" id="contrasenaRepetida" placeholder="Repetir contraseña nueva" required>
+                    </div>
+                    <p class="ayuda_contrasena">Debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número.</p>
+                    <div class="acciones_form">
+                        <button type="submit" class="btn_guardar">Cambiar contraseña</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/barra_usuario.js"></script>
+    <script src="/js/perfil.js"></script>
+</body>
+</html>

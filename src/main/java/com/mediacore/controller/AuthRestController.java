@@ -66,6 +66,8 @@ public class AuthRestController {
         respuesta.put("idUsuario", usuarioLogueado.getIdUsuario());
         respuesta.put("nombreUsuario", usuarioLogueado.getNombreUsuario());
         respuesta.put("nombre", usuarioLogueado.getNombre());
+        respuesta.put("apellido", usuarioLogueado.getApellido());
+        respuesta.put("email", usuarioLogueado.getEmail());
         respuesta.put("idRol", usuarioLogueado.getIdRol());
 
         return ResponseEntity.ok(respuesta);

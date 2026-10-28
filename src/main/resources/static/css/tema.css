@@ -286,3 +286,44 @@ Base Hex: #ffb6c1
 --dato-errado: #fb8c00;
 --correcto: #4caf50;
 }
+
+/* ===== Usuario en la barra superior (imagen, nombre y rol) ===== */
+.usuario_barra {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+    padding: 4px 12px 4px 4px;
+    border-radius: 30px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.usuario_barra:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.usuario_barra_img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    flex-shrink: 0;
+}
+
+.usuario_barra_texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.usuario_barra_nombre {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.usuario_barra_rol {
+    font-size: 0.78rem;
+    opacity: 0.85;
+}
