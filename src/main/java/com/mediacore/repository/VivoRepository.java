@@ -61,4 +61,9 @@ public interface VivoRepository extends JpaRepository<Vivo, Integer> {
     // columnas: id_envivo, titulo, descripcion, duracion, retransmitido
     @Query(value = "CALL listar_vivos_pendientes()", nativeQuery = true)
     List<Object[]> listarVivosPendientesProcedure();
+
+    // Stored Procedure que lista los vivos ya retransmitidos (vista publica)
+    // columnas: id_envivo, titulo, descripcion, duracion
+    @Query(value = "CALL listar_vivos_retransmitidos()", nativeQuery = true)
+    List<Object[]> listarVivosRetransmitidosProcedure();
 }

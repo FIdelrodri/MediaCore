@@ -41,6 +41,12 @@ public class ViewController {
         return "login";
     }
 
+    // Vista publica: vivos ya retransmitidos (no requiere sesion). Es tambien la pagina principal (/)
+    @GetMapping({"/", "/vivos-retransmitidos"})
+    public String mostrarVivosRetransmitidos() {
+        return "vivos_retransmitidos"; // Carga templates/vivos_retransmitidos.html
+    }
+
     @GetMapping("/pagina-inexistente")
     public String mostrarPaginaInexistente() {
         return "404"; // Carga templates/404.html

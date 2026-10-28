@@ -92,6 +92,20 @@ public class VivoService {
         return filasAVivos(vivoRepository.listarVivosPendientesProcedure());
     }
 
+    // Lista publica: solo expone los datos del vivo, sin el estado
+    public List<Map<String, Object>> listarRetransmitidos() {
+        List<Map<String, Object>> vivos = new ArrayList<>();
+        for (Object[] fila : vivoRepository.listarVivosRetransmitidosProcedure()) {
+            Map<String, Object> vivo = new LinkedHashMap<>();
+            vivo.put("idEnvivo", fila[0]);
+            vivo.put("titulo", fila[1]);
+            vivo.put("descripcion", fila[2]);
+            vivo.put("duracion", fila[3]);
+            vivos.add(vivo);
+        }
+        return vivos;
+    }
+
     // Convierte las filas de los procedures en mapas con nombres en camelCase para el JSON
     private List<Map<String, Object>> filasAVivos(List<Object[]> filas) {
         List<Map<String, Object>> vivos = new ArrayList<>();

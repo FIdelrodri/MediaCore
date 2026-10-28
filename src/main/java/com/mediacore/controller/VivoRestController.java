@@ -65,6 +65,12 @@ public class VivoRestController {
         return ResponseEntity.ok(vivoService.listar());
     }
 
+    // API publica (sin sesion): listar los vivos ya retransmitidos (procedure listar_vivos_retransmitidos)
+    @GetMapping("/retransmitidos")
+    public ResponseEntity<?> listarRetransmitidos() {
+        return ResponseEntity.ok(vivoService.listarRetransmitidos());
+    }
+
     // API: listar los vivos que todavia no fueron retransmitidos (procedure listar_vivos_pendientes)
     @GetMapping("/pendientes")
     public ResponseEntity<?> listarPendientes(HttpSession session) {

@@ -609,6 +609,12 @@ BEGIN
   SELECT * FROM vivo WHERE retransmitido = FALSE ORDER BY id_envivo;
 END $$
 
+CREATE PROCEDURE listar_vivos_retransmitidos()
+BEGIN
+  SELECT id_envivo, titulo, descripcion, duracion
+  FROM vivo WHERE retransmitido = TRUE ORDER BY id_envivo DESC;
+END $$
+
 CREATE PROCEDURE modificar_vivo(
   IN p_id_envivo INT, IN p_titulo VARCHAR(100), IN p_descripcion VARCHAR(500), IN p_duracion INT)
 BEGIN

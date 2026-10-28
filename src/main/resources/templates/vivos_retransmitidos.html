@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vivos retransmitidos - MediaCore</title>
+    <link rel="stylesheet" href="/css/tema.css">
+    <link rel="stylesheet" href="/css/administracion.css">
+    <link rel="stylesheet" href="/css/vivos_retransmitidos.css">
+</head>
+<body>
+
+    <div class="Fondo">
+        <!-- Barra superior: logo y un botón: "Ir al Panel" con sesión y rol, "Iniciar sesión" sin sesión -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="/img/MediacoreLogo.png" alt="MediaCore Logo">
+            <a href="/login" class="btn_volver" id="btnIrPanel">Iniciar sesión</a>
+        </div>
+
+        <main class="contenido_vivos">
+            <!-- Contenedor del título -->
+            <div class="contenedor_titulo">
+                <h2>Vivos</h2>
+                <p>Transmisiones en vivo que ya salieron al aire</p>
+            </div>
+
+            <div id="mensaje" class="Alerta"></div>
+
+            <!-- Contenedor del buscador -->
+            <div class="contenedor_buscador">
+                <input type="text" id="buscador" placeholder="Buscar por título o descripción...">
+            </div>
+
+            <!-- Encabezados de las columnas -->
+            <div class="encabezado_columnas">
+                <span>Título</span>
+                <span>Duración</span>
+                <span>Descripción</span>
+            </div>
+
+            <!-- Una fila separada por cada vivo, se llena desde JS -->
+            <div id="lista_vivos" class="lista_bloques"></div>
+        </main>
+    </div>
+
+    <script src="/js/vivos_retransmitidos.js"></script>
+</body>
+</html>
