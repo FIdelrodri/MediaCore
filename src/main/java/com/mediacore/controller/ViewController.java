@@ -95,4 +95,16 @@ public class ViewController {
         model.addAttribute("usuario", usuarioLogueado);
         return "vivos"; // Carga templates/vivos.html
     }
+
+    // Vista de Anuncios (roles 1 y 2)
+    @GetMapping("/anuncios")
+    public String mostrarAnuncios(HttpSession session, Model model) {
+        if (!tieneAcceso(session, 1, 2)) {
+            return "redirect:/pagina-inexistente";
+        }
+
+        Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
+        model.addAttribute("usuario", usuarioLogueado);
+        return "anuncios"; // Carga templates/anuncios.html
+    }
 }

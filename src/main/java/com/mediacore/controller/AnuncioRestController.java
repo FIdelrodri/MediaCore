@@ -19,12 +19,12 @@ public class AnuncioRestController {
     @Autowired
     private AnuncioService anuncioService;
 
-    // Mismos roles que Programa:
-    //  1 Administrador General, 6 Personal de postproduccion (administran el contenido)
-    //  1 Administrador General, 2 Administrador, 5 Administrador de planilla (modifican la planilla)
-    private static final int[] ROLES_CONTENIDO = {1, 6};
+    // Roles:
+    //  1 Administrador General, 2 Administrador (administran los anuncios)
+    //  1 Administrador General, 2 Administrador, 5 Administrador de planilla (programan desde la vista de la grilla)
+    private static final int[] ROLES_CONTENIDO = {1, 2};
     private static final int[] ROLES_PLANILLA = {1, 2, 5};
-    private static final int[] ROLES_CONSULTA = {1, 2, 5, 6};
+    private static final int[] ROLES_CONSULTA = {1, 2};
 
     private Map<String, Object> respuesta(String status, String mensaje) {
         Map<String, Object> respuesta = new HashMap<>();
