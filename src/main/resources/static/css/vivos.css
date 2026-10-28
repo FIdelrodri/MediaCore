@@ -1,0 +1,41 @@
+.barra_filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.barra_filtros .buscador {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.barra_filtros select {
+    min-width: 150px;
+}
+
+.estado {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.estado.pendiente {
+    background-color: #e08a00;
+}
+
+.estado.retransmitido {
+    background-color: #28a745;
+}
+
+.fila_retransmitida td {
+    opacity: 0.6;
+    background-color: #f4f4f4;
+}
+
+.fila_retransmitida td strong {
+    font-weight: 500;
+    font-style: italic;
+}

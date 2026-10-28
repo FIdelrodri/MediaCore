@@ -83,4 +83,16 @@ public class ViewController {
         model.addAttribute("usuario", usuarioLogueado);
         return "programas"; // Carga templates/programas.html
     }
+
+    // Vista de Vivos (roles 1, 2 y 3)
+    @GetMapping("/vivos")
+    public String mostrarVivos(HttpSession session, Model model) {
+        if (!tieneAcceso(session, 1, 2, 3)) {
+            return "redirect:/pagina-inexistente";
+        }
+
+        Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
+        model.addAttribute("usuario", usuarioLogueado);
+        return "vivos"; // Carga templates/vivos.html
+    }
 }

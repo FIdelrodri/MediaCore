@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vivos - MediaCore</title>
+    <link rel="stylesheet" href="/css/tema.css">
+    <link rel="stylesheet" href="/css/administracion.css">
+    <link rel="stylesheet" href="/css/programas.css">
+    <link rel="stylesheet" href="/css/vivos.css">
+</head>
+<body>
+
+    <div class="Fondo">
+        <!-- Barra superior -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="/img/MediacoreLogo.png" alt="MediaCore Logo">
+            <a href="/panel" class="btn_volver">Volver al Panel</a>
+        </div>
+
+        <main class="contenido_admin">
+            <div class="tarjeta_admin">
+                <h2>Gestión de Vivos</h2>
+                <p class="descripcion_seccion">Consulta, crea y modifica las transmisiones en vivo. El estado de retransmitido se actualiza automáticamente cuando el vivo sale al aire.</p>
+
+                <!-- Mensaje de alerta unificado con Login y Registro -->
+                <div id="mensaje" class="Alerta"></div>
+
+                <!-- Formulario de alta y edición (roles 1, 2 y 6) -->
+                <form id="formVivo" class="form_programa" style="display: none;">
+                    <h3 id="tituloForm">Nuevo vivo</h3>
+                    <input type="hidden" id="idEnvivo">
+                    <div class="fila_form">
+                        <input type="text" id="titulo" placeholder="Título" maxlength="100" required>
+                        <input type="number" id="duracion" placeholder="Duración (segundos)" min="1" required>
+                    </div>
+                    <textarea id="descripcion" placeholder="Descripción" maxlength="500" rows="2" required></textarea>
+                    <div class="acciones_form">
+                        <button type="submit" class="btn_guardar" id="btnGuardar">Crear vivo</button>
+                        <button type="button" class="btn_cancelar" id="btnCancelar" style="display: none;">Cancelar edición</button>
+                    </div>
+                </form>
+
+                <!-- Búsqueda y filtro por JS sobre la lista ya cargada -->
+                <div class="barra_filtros">
+                    <input type="text" id="buscador" class="buscador" placeholder="Buscar por título o descripción...">
+                    <select id="filtroEstado">
+                        <option value="todos">Todos</option>
+                        <option value="pendientes">Pendientes</option>
+                        <option value="retransmitidos">Retransmitidos</option>
+                    </select>
+                </div>
+
+                <div class="tabla_contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Título</th>
+                                <th>Duración</th>
+                                <th>Estado</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista_vivos">
+                            <!-- Se llena dinámicamente desde JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/vivos.js"></script>
+</body>
+</html>

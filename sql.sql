@@ -378,7 +378,7 @@ BEGIN
   END IF;
 END $$
 
--- ---- 6.6 Grilla: historial de lo que salio al aire ----
+-- ---- 6.6 Grilla: historial de lo que salio al aire y vivos retransmitidos ----
 CREATE TRIGGER after_delete_grilla
 AFTER DELETE ON grilla
 FOR EACH ROW
@@ -392,6 +392,12 @@ BEGIN
 
     INSERT INTO historial_emision (id_bloque, tipo_contenido, titulo, hora_inicio, hora_fin_real)
     VALUES (OLD.id_bloque, v_tipo, v_titulo, OLD.hora_inicio, NOW());
+
+    -- Si el bloque que salio al aire era un vivo, queda marcado como retransmitido
+    IF v_tipo = 'vivo' THEN
+      UPDATE vivo SET retransmitido = TRUE
+      WHERE id_envivo = (SELECT id_referencia FROM bloque WHERE id_bloque = OLD.id_bloque);
+    END IF;
   END IF;
 END $$
 
