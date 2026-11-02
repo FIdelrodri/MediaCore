@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administración - MediaCore</title>
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/administracion.css">
+</head>
+<body>
+
+    <div class="Fondo">
+        <!-- Barra superior -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="img/MediacoreLogo.png" alt="MediaCore Logo"> 
+            <a href="panel" class="btn_volver">Volver al Panel</a>
+        </div>
+
+        <main class="contenido_admin">
+            <div class="tarjeta_admin">
+                <h2>Gestión de Usuarios</h2>
+                <p class="descripcion_seccion">Asigna roles o elimina cuentas de usuario registradas en el sistema.</p>
+
+                <!-- Mensaje de alerta unificado con Login y Registro -->
+                <div id="mensaje" class="Alerta"></div>
+
+                <div class="tabla_contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Usuario</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th>Rol Asignado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista_usuarios">
+                            <!-- Se llena dinámicamente desde JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/barra_usuario.js"></script>
+    <script src="js/administracion.js"></script>
+</body>
+</html>

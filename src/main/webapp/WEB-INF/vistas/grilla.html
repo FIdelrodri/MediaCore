@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grilla - MediaCore</title>
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/administracion.css">
+    <link rel="stylesheet" href="css/grilla.css">
+</head>
+<body>
+
+    <div class="Fondo">
+        <!-- Barra superior -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="img/MediacoreLogo.png" alt="MediaCore Logo">
+            <a href="panel" class="btn_volver">Volver al Panel</a>
+        </div>
+
+        <main class="contenido_grilla">
+            <div id="mensaje" class="Alerta"></div>
+
+            <div class="columnas_grilla">
+
+                <!-- Izquierda: bloques disponibles -->
+                <section class="panel_grilla" id="panelBloques">
+                    <h2>Bloques</h2>
+                    <input type="text" id="buscador" class="buscador" placeholder="Buscar por título...">
+                    <div class="fila_filtros">
+                        <select id="filtro">
+                            <option value="todos">Todos los bloques</option>
+                            <option value="no_usados">Sin usar en la grilla</option>
+                        </select>
+                    </div>
+                    <div id="listaBloques" class="lista_bloques_grilla"></div>
+                    <button type="button" id="btnHuerfanos" class="btn_mini btn_mantenimiento">Limpiar bloques huérfanos</button>
+                </section>
+
+                <!-- Derecha: al aire, cola e historial -->
+                <section class="panel_grilla">
+                    <h2>Grilla</h2>
+                    <div class="en_aire" id="enAire"></div>
+
+                    <div id="cajaAudio" class="caja_audio" hidden></div>
+
+                    <div class="barra_resumen">
+                        <span id="resumenGrilla"></span>
+                        <button type="button" id="btnVaciar" class="btn_peligro">Vaciar grilla</button>
+                    </div>
+                    <div id="listaGrilla" class="lista_cola"></div>
+
+                    <h2 class="subtitulo">Historial</h2>
+                    <div id="listaHistorial" class="lista_cola"></div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/barra_usuario.js"></script>
+    <script src="js/grilla.js"></script>
+</body>
+</html>

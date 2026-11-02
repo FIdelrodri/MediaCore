@@ -1,0 +1,31 @@
+.resumen_perfil {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.perfil_img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid var(--granate);
+}
+
+.perfil_usuario {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--granate);
+}
+
+.perfil_rol {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.ayuda_contrasena {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0 0 10px 0;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel General - MediaCore</title>
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+
+    <div class="Fondo">
+        <!-- Barra superior -->
+        <div class="barra_superior">
+            <img class="logowich_arriba" src="img/MediacoreLogo.png" alt="MediaCore Logo"> 
+            <button id="btnCerrarSesion" class="btn_logout">Cerrar Sesión</button>
+        </div>
+
+        <main class="contenido_panel">
+            <div class="encabezado_panel">
+                <h2>Panel General</h2>
+            </div>
+
+            <nav style="width: 100%;">
+                <ul class="lista_opciones">
+                    <!-- Tarjeta 1: Administración (Solo Rol 1) -->
+                    <li class="tarjeta_modulo" data-roles-permitidos="1" style="display: none;">
+                        <a href="administracion" class="boton_modulo">
+                            <span class="titulo_tarjeta">Administración</span>
+                            <span class="desc_tarjeta">Acceso exclusivo a la gestión del sistema y configuración avanzada de usuarios.</span>
+                        </a>
+                    </li>
+
+                    <!-- Tarjeta 2: Programas (Roles 1, 2 y 6) -->
+                    <li class="tarjeta_modulo" data-roles-permitidos="1,2,6" style="display: none;">
+                        <a href="programas" class="boton_modulo">
+                            <span class="titulo_tarjeta">Programas</span>
+                            <span class="desc_tarjeta">Consulta y administra los programas del canal.</span>
+                        </a>
+                    </li>
+
+                    <!-- Tarjeta 3: Vivos (Roles 1, 2 y 3) -->
+                    <li class="tarjeta_modulo" data-roles-permitidos="1,2,3" style="display: none;">
+                        <a href="vivos" class="boton_modulo">
+                            <span class="titulo_tarjeta">Vivos</span>
+                            <span class="desc_tarjeta">Consulta y administra las transmisiones en vivo del canal.</span>
+                        </a>
+                    </li>
+
+                    <!-- Tarjeta 4: Anuncios (Roles 1 y 2) -->
+                    <li class="tarjeta_modulo" data-roles-permitidos="1,2" style="display: none;">
+                        <a href="anuncios" class="boton_modulo">
+                            <span class="titulo_tarjeta">Anuncios</span>
+                            <span class="desc_tarjeta">Administra los anuncios publicitarios y las empresas que los contratan.</span>
+                        </a>
+                    </li>
+
+                    <!-- Tarjeta 5: Grilla (Roles 1, 2, 4, 5 y 6) -->
+                    <li class="tarjeta_modulo" data-roles-permitidos="1,2,4,5,6" style="display: none;">
+                        <a href="grilla" class="boton_modulo">
+                            <span class="titulo_tarjeta">Grilla</span>
+                            <span class="desc_tarjeta">Arma y controla la grilla de programación: bloques al aire, cola e historial de emisión.</span>
+                        </a>
+                    </li>
+
+                    <!-- Tarjeta 6: Vivos retransmitidos (vista pública, todos los roles) -->
+                    <li class="tarjeta_modulo" data-roles-permitidos="1,2,3,4,5,6,7" style="display: none;">
+                        <a href="vivos-retransmitidos" class="boton_modulo">
+                            <span class="titulo_tarjeta">Vivos retransmitidos</span>
+                            <span class="desc_tarjeta">Consulta el listado público de las transmisiones en vivo que ya salieron al aire.</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </main>
+    </div>
+
+    <script src="js/barra_usuario.js"></script>
+    <script src="js/panel.js"></script>
+</body>
+</html>
