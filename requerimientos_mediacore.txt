@@ -1,54 +1,63 @@
-
-===============================================================================
-REQUERIMIENTOS FUNCIONALES (RF)
-===============================================================================
-
---- GESTIÓN DE PROGRAMACIÓN / GRILLA ---
-• RF01: Control en tiempo real de la programación de TV y streaming.
-• RF02: Creación de bloques para contenido en vivo y pregrabado.
-• RF03: Reproducción automática y secuencial de bloques programados.
-• RF04: Planificación de cronogramas mensuales (días, franjas horarias, videos).
-• RF05: Interfaz con línea de tiempo visual e interacción drag and drop.
-• RF06: Eliminación manual de bloques o programas de la planilla.
-• RF07: Detección de huecos en la grilla con emisión de alertas al personal (sin auto-relleno).
-• RF08: Exclusión de generación automática de pautas o bloques (definidos exclusivamente por el personal).
-
---- STREAMING Y TRANSMISIÓN EN VIVO ---
-• RF09: Preparación de streams en vivo organizando escenografía, arte y vestuario.
-• RF10: Pausa automática de programación pregrabada al iniciar un vivo y reanudación posterior.
-• RF11: Guardado de transmisiones en vivo para retransmisión u on-demand (reverse).
-• RF12: Restricción de contenido de TV para su consumo on-demand.
-• RF13: Consulta del historial completo de archivos digitales conservados.
-• RF14: Simulación de integraciones de streaming (Twitch, chat en vivo y rating en tiempo real con datos de prueba).
-
---- PAUTAS PUBLICITARIAS ---
-• RF15: Carga de tandas comerciales como archivos de video (10s, 20s, 30s).
-• RF16: Configuración de frecuencia de reproducción contratada por anunciante.
-• RF17: Segmentación de pautas por categoría/etiqueta de programa.
-• RF18: Activación manual de pausas publicitarias en transmisiones en vivo.
-• RF19: Módulo de gestión de facturación a anunciantes.
-
---- USUARIOS Y ROLES ---
-• RF20: Acceso exclusivo para personal interno de la empresa.
-• RF21: Perfiles y permisos diferenciados por rol (Gerente, Monitoreo, Audio, Postproducción).
-• RF22: Integración con el sistema existente de subtitulado y lenguaje de señas.
-
---- ACREDITACIONES Y PRODUCCIÓN EN VIVO ---
-• RF23: Gestión de credenciales de prensa y cobertura de eventos.
-• RF24: Registro detallado de producción (arte, vestuario, escenografía) asignado a bloques en vivo.
-
---- NOTIFICACIONES ---
-• RF25: Alertas internas en la plataforma para el equipo de monitoreo (ej. huecos en grilla).
-
-===============================================================================
+Requisitos Del Sistema
+--- USUARIOS Y ACCESO ---
+RF01: Registro de usuarios con nombre de usuario, email y contraseña, asignando por defecto el rol 7 (Usuario).
+RF02: Validación de unicidad de nombre de usuario y email, y del formato del email.
+RF03: Inicio y cierre de sesión, manteniendo el usuario y su rol en la sesión.
+RF04: Vista de perfil para modificar datos personales y contraseña, accesible desde la barra superior de todas las vistas.
+RF05: Panel principal que muestra solo las vistas permitidas para el rol del usuario.
+RF06: Filtro de acceso que verifica el rol en cada solicitud y deniega las vistas no autorizadas.
+--- ADMINISTRACIÓN DE USUARIOS Y ROLES ---
+RF07: Listado, búsqueda y filtrado de usuarios por rol, y conteo de usuarios por rol (solo rol 1).
+RF08: Asignación de roles y degradación al rol 7 (solo rol 1).
+RF09: Protección del último Administrador General: no puede ser degradado ni eliminado.
+RF10: Registro automático de cada cambio de rol (usuario, rol anterior, rol nuevo y fecha) y su consulta.
+RF11: Eliminación de usuarios (solo rol 1).
+--- GESTIÓN DE CONTENIDO ---
+RF12: Alta, modificación, baja y listado de programas (roles 1, 2 y 6).
+RF13: Alta, modificación, baja y listado de transmisiones en vivo (roles 1, 2 y 3).
+RF14: Alta, modificación, baja y listado de anuncios (roles 1 y 2).
+RF15: Estado “retransmitido” de cada vivo, que no se modifica desde la vista y cambia automáticamente cuando el vivo sale al aire.
+RF16: Listado separado de vivos pendientes y retransmitidos, con las filas retransmitidas atenuadas.
+RF17: La programación de contenido en la grilla se realiza únicamente desde la vista de la grilla, no desde las vistas de programas, vivos o anuncios.
+--- BLOQUES ---
+RF18: Generación automática del bloque al crear un programa, vivo o anuncio.
+RF19: Sincronización automática de la duración del bloque al modificar el contenido, y eliminación del bloque al eliminar el contenido.
+RF20: Un contenido tiene como máximo un bloque.
+RF21: Consulta de bloques: todos, por tipo y no usados en la grilla.
+RF22: Cálculo de la duración total por tipo de bloque.
+RF23: Limpieza de bloques huérfanos.
+--- GRILLA ---
+RF24: Grilla tipo playlist con bloques ordenados, cargados con una única consulta y filtrados desde el navegador.
+RF25: Agregar programas, vivos, anuncios o bloques al final de la grilla.
+RF26: Insertar un bloque en una posición determinada.
+RF27: Mover, intercambiar, reemplazar y duplicar posiciones.
+RF28: Quitar una posición y vaciar la grilla.
+RF29: Las operaciones sobre varias posiciones se ejecutan como transacción y mantienen el orden sin huecos.
+RF30: Rechazo de bloques cuya duración no coincide con la de su contenido.
+RF31: Cálculo y visualización de horarios de inicio y fin proyectados y de la duración total de la grilla.
+RF32: Visualización del bloque que está al aire.
+RF33: Acceso a la vista de la grilla para los roles 1, 2, 4, 5 y 6; solo los roles 1, 2 y 5 pueden programarla (el rol 6 no).
+RF34: Nivel de audio de 1 a 100 en la grilla, modificable solo por los roles 1, 2 y 4.
+--- EMISIÓN E HISTORIAL ---
+RF35: Avance automático de la grilla cada segundo mediante un evento programado de la base de datos.
+RF36: Al terminar el bloque al aire, se retira, se compacta el orden y se pone al aire el siguiente.
+RF37: Salto manual del bloque al aire (roles 1, 2 y 5).
+RF38: Registro en el historial de cada bloque emitido (tipo, título y horarios), que se conserva aunque se elimine el contenido.
+RF39: Marcado automático como retransmitido del vivo que sale de la grilla.
+RF40: Consulta del historial de emisión.
+--- VISTA PÚBLICA ---
+RF41: Página principal pública, sin inicio de sesión, que muestra los vivos ya retransmitidos.
+RF42: Botón “Iniciar sesión” o “Ir al Panel” según haya o no sesión activa.
 REQUERIMIENTOS NO FUNCIONALES (RNF)
-===============================================================================
-
-• RNF01 (Uso interno): Restricción de acceso exclusivo desde las instalaciones físicas de la empresa.
-• RNF02 (Seguridad por roles): Control de acceso basado en roles (RBAC).
-• RNF03 (Usabilidad): Interfaz gráfica intuitiva con soporte de arrastrar y soltar (drag and drop).
-• RNF04 (Disponibilidad): Funcionamiento continuo 24/7 sin interrupciones.
-• RNF05 (Persistencia histórica): Almacenamiento seguro e íntegro del historial de archivos y transmisiones.
-• RNF06 (Simulación de datos): Uso de mock data para funcionalidades de API externas no disponibles.
-• RNF07 (Mantenibilidad / Licencias): Desarrollo propio para eliminar la dependencia de licencias de software privativo.
-• RNF08 (Accesibilidad): Compatibilidad con los recursos actuales de accesibilidad (subtítulos y señas).
+RNF01 (Arquitectura): Backend en Java con Servlets, patrones DAO, Factory y Singleton, con acceso a la base de datos solo mediante procedimientos almacenados.
+RNF02 (Plataforma): Ejecución sobre Apache Tomcat 10, desarrollado en STS y con base de datos MySQL compatible con phpMyAdmin.
+RNF03 (Seguridad por roles): Control de acceso basado en roles (RBAC), verificado en el servidor en cada solicitud.
+RNF04 (Integridad): Reglas del negocio (unicidad, duraciones coherentes, protección del último administrador, generación de bloques e historial) aplicadas en la base de datos mediante restricciones y triggers.
+RNF05 (Atomicidad): Las operaciones que modifican varias filas se realizan de forma atómica.
+RNF06 (Auditoría): Registro permanente y automático de los cambios de rol y de las emisiones.
+RNF07 (Rendimiento): Carga de la grilla con una sola consulta y evento de avance que se completa dentro de su intervalo de un segundo.
+RNF08 (Disponibilidad): El avance de la grilla funciona de forma continua, sin depender de que haya un usuario conectado.
+RNF09 (Usabilidad): Interfaz simple y coherente entre vistas, con barra superior común.
+RNF10 (Compatibilidad): Funcionamiento en navegadores web actuales sin instalar complementos.
+RNF11 (Mantenibilidad): Código simple, organizado por capas, explicable por sus autores y sin APIs sin uso.
+RNF12 (Escalabilidad): Posibilidad de sumar nuevos tipos de contenido o roles sin rediseñar la grilla, gracias al bloque como capa de abstracción.
